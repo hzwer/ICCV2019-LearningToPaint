@@ -28,7 +28,8 @@ Download the CelebA(http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) dataset an
 To create a differentiable painting environment, we need train the neural renderer firstly. 
 
 ```
-$ python3 train_bezier.py
+$ cd baseline
+$ python3 train_renderer.py
 $ tensorboard --logdir ../train_log --port=6006
 (The training process will be shown at http://127.0.0.1:6006)
 ```
@@ -36,6 +37,7 @@ $ tensorboard --logdir ../train_log --port=6006
 ### RL Agent
 After the neural renderer looks good enough, we can begin training the agent.
 ```
+$ cd baseline
 $ python3 train.py --max_step=40
 (A step contains 5 strokes in default.)
 $ tensorboard --logdir ../train_log --port=6006
