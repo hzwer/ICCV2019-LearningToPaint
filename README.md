@@ -25,7 +25,7 @@ Download the CelebA(http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) dataset an
 ## Training
 
 ### Neural Renderer
-To create a differentiable painting environment, we need train the NSR firstly. 
+To create a differentiable painting environment, we need train the neural renderer firstly. 
 
 ```
 $ python3 train_bezier.py
@@ -34,7 +34,7 @@ $ tensorboard --logdir ../train_log --port=6006
 ```
 
 ### RL Agent
-After the NSR looks good enough, we can begin training the agent.
+After the neural renderer looks good enough, we can begin training the agent.
 ```
 $ python3 train.py --max_step=40
 (A step contains 5 strokes in default.)
