@@ -1,4 +1,4 @@
-# Neural Stroke-based Rendering
+# Stroke-based Artistic Rendering Agent with Deep Reinforcement Learning
 
 ![Image text](./image/step.png)
 
