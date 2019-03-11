@@ -15,33 +15,44 @@ $ source activate py36
 ```
 
 ### Dependencies
-```
 * [PyTorch](http://pytorch.org/) 0.4 
 * [tensorboardX](https://github.com/lanpa/tensorboard-pytorch/tree/master/tensorboardX)
 * [opencv-python](https://pypi.org/project/opencv-python/)
-```
 
 ### Data
-```
-Download the CelebA(http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) dataset and put the align images in data/img_align_celeba/******.jpg
-```
+Download the CelebA(http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) dataset and put the aligned images in data/img_align_celeba/******.jpg
 
 ## Training
 
-### NSR
+### Neural Renderer
 To create a differentiable painting environment, we need train the NSR firstly. 
 
 ```
 $ python3 train_bezier.py
-$ tensorboard --logdir ./ --port=6006 
-(The training process is shown in http://127.0.0.1:6006)
+<<<<<<< HEAD
+$ tensorboard --logdir ../train_log --port=6006
+(The training process will be shown at http://127.0.0.1:6006)
 ```
 
-### RL agent
+### RL Agent
 ```
 $ python3 train.py --max_step=40
+(A step contains 5 strokes in default.)
+$ tensorboard --logdir ../train_log --port=6006
+
+=======
+$ tensorboard --logdir ./ --port=6006 
+(The training process will be shown at http://127.0.0.1:6006)
+```
+### RL agent
+After the NSR looks good enough, we can begin training the agent.
+```
+$ python3 train.py --max_step=40
+$ tensorboard --logdir ./ --port=6006 
+>>>>>>> origin/master
 ```
 
+We will provide you some trained parameters soon. We really hope someone will use these code to reproduce the results.
 ## Results
 
 ![Image text](./image/CelebA.png)
@@ -49,5 +60,4 @@ $ python3 train.py --max_step=40
 ![Image text](./image/imagenet.png)
 
 ## Reference
-
-[pytorch-cifar](https://github.com/kuangliu/pytorch-cifar) (model)
+Our paper will be released soon.
