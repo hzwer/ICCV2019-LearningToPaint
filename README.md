@@ -29,27 +29,16 @@ To create a differentiable painting environment, we need train the NSR firstly.
 
 ```
 $ python3 train_bezier.py
-<<<<<<< HEAD
 $ tensorboard --logdir ../train_log --port=6006
 (The training process will be shown at http://127.0.0.1:6006)
 ```
 
 ### RL Agent
+After the NSR looks good enough, we can begin training the agent.
 ```
 $ python3 train.py --max_step=40
 (A step contains 5 strokes in default.)
 $ tensorboard --logdir ../train_log --port=6006
-
-=======
-$ tensorboard --logdir ./ --port=6006 
-(The training process will be shown at http://127.0.0.1:6006)
-```
-### RL agent
-After the NSR looks good enough, we can begin training the agent.
-```
-$ python3 train.py --max_step=40
-$ tensorboard --logdir ./ --port=6006 
->>>>>>> origin/master
 ```
 
 We will provide you some trained parameters soon. We really hope someone will use these code to reproduce the results.
