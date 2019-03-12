@@ -1,6 +1,8 @@
 # Stroke-based Artistic Rendering Agent with Deep Reinforcement Learning
 
-![Image text](./image/step.png)
+---> https://arxiv.org/abs/1903.04411
+
+![CelebA reconstructions stroke by stroke.](./image/step.png)
 
 ## Abstract
 
@@ -46,9 +48,18 @@ $ tensorboard --logdir ../train_log --port=6006
 We will provide you some trained parameters soon. We really hope someone will use these code to reproduce the results.
 ## Results
 
-![Image text](./image/CelebA.png)
+![CelebA reconstructions](./image/CelebA.png)
 
-![Image text](./image/imagenet.png)
+![ImageNet reconstructions](./image/imagenet.png)
 
-## Reference
-Our paper will be released soon.
+If you find this repository useful for your research, please cite the following paper :
+
+```
+@article{huang2019stroke,
+  title={Stroke-based Artistic Rendering Agent with Deep Reinforcement Learning
+},
+  author={Huang, Zhewei and Heng, Wen and Zhou, Shuchang},
+  journal={arXiv preprint arXiv:1903.04411},
+  year={2019}
+}
+```
