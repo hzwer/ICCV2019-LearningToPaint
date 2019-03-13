@@ -2,11 +2,11 @@
 
 ---> https://arxiv.org/abs/1903.04411
 
-![CelebA reconstructions stroke by stroke.](./image/step.png)
+![CelebA reconstructions stroke by stroke.](./image/main.jpg)
 
 ## Abstract
 
-Excellent painters can use only a few strokes to create a fantastic painting, which is a symbol of human inte and art. Reversing the simulator to interpret images is also a challenging task of computer vision in recent years. In this paper, we propose a stroke-based rendering (SBR) method that combines the neural stroke renderer (NSR) and deep reinforcement learning (DRL), allowing the machine to learn the ability of deconstructing images using strokes and create amazing visual effects. Our agent is an end-to-end program that converts natural images into paintings. The training process does not require human painting experience or stroke tracking data. 
+Excellent painters can use only a few strokes to create a fantastic painting, which is a symbol of human intelligence and art. Inverting a renderer or generator to interpret images is also a challenging task of computer vision in recent years. In this paper, we present SARA, a stroke-based artistic rendering agent that combines the neural renderer and deep reinforcement learning (DRL), allowing the machine to learn the ability to deconstruct images using strokes and create amazing visual effects. Our agent is an end-to-end program that converts natural images into paintings. The training process does not require the experience of human painting or stroke tracking data.
 
 ## Installation
 Use [anaconda](https://conda.io/miniconda.html) to manage environment
