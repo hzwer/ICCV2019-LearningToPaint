@@ -2,11 +2,15 @@
 
 ---> https://arxiv.org/abs/1903.04411
 
----> [Reddit](https://www.reddit.com/r/computervision/comments/b01ksx/strokebased_artistic_rendering_agent_with_deep/)
+---> [Reddit](https://www.reddit.com/r/computervision/comments/b01ksx/strokebased_artistic_rendering_agent_with_deep/) Welcome to suggest our work!
 
+<div align=center>
+  
 ![Architecture](./image/main.jpg)
 
 ![CelebA paintings stroke by stroke.](./image/step.png)
+
+</div>
 
 ## Abstract
 
