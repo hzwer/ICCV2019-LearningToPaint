@@ -2,7 +2,11 @@
 
 ---> https://arxiv.org/abs/1903.04411
 
-![CelebA reconstructions stroke by stroke.](./image/main.jpg)
+---> [Reddit](https://www.reddit.com/r/computervision/comments/b01ksx/strokebased_artistic_rendering_agent_with_deep/)
+
+![Architecture](./image/main.jpg)
+
+![CelebA paintings stroke by stroke.](./image/step.png)
 
 ## Abstract
 
@@ -21,8 +25,8 @@ $ source activate py36
 * [tensorboardX](https://github.com/lanpa/tensorboard-pytorch/tree/master/tensorboardX)
 * [opencv-python](https://pypi.org/project/opencv-python/)
 
-### Data
-Download the CelebA(http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) dataset and put the aligned images in data/img_align_celeba/******.jpg
+### Datasets
+Download the [CelebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) dataset and put the aligned images in data/img_align_celeba/\*\*\*\*\*\*.jpg
 
 ## Training
 
@@ -30,27 +34,23 @@ Download the CelebA(http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) dataset an
 To create a differentiable painting environment, we need train the neural renderer firstly. 
 
 ```
-$ cd baseline
-$ python3 train_renderer.py
-$ tensorboard --logdir ../train_log --port=6006
+$ python3 baseline/train_renderer.py
+$ tensorboard --logdir ./train_log --port=6006
 (The training process will be shown at http://127.0.0.1:6006)
 ```
 
 ### RL Agent
 After the neural renderer looks good enough, we can begin training the agent.
 ```
-$ cd baseline
-$ python3 train.py --max_step=40
+$ python3 baseline/train.py --max_step=40
 (A step contains 5 strokes in default.)
-$ tensorboard --logdir ../train_log --port=6006
+$ tensorboard --logdir ./train_log --port=6006
 ```
 
 We will provide you some trained parameters soon. We really hope someone will use these code to reproduce the results.
 ## Results
 
-![CelebA reconstructions](./image/CelebA.png)
-
-![ImageNet reconstructions](./image/imagenet.png)
+![ImageNet paintings](./image/imagenet.png)
 
 If you find this repository useful for your research, please cite the following paper :
 
