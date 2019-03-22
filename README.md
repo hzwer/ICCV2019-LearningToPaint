@@ -2,7 +2,9 @@
 
 ---> https://arxiv.org/abs/1903.04411
 
----> [Reddit](https://www.reddit.com/r/computervision/comments/b01ksx/strokebased_artistic_rendering_agent_with_deep/) Welcome to suggest our work!
+<div align=center>
+<img src="./image/step.png" width="500">
+</div>
 
 ![Architecture](./image/main.jpg)
 
@@ -48,11 +50,9 @@ $ tensorboard --logdir ./train_log --port=6006
 We will provide you some trained parameters soon. 
 ## Results
 
-![CelebA paintings stroke by stroke.](./image/step.png)
-
 ![Results](./image/results.png)
 
-If you find this repository useful for your research, please cite the following paper :
+If you find this repository useful for your research, please cite the following paper:
 
 ```
 @article{huang2019stroke,
