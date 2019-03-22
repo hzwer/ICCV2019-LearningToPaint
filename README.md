@@ -1,20 +1,14 @@
-# Stroke-based Artistic Rendering Agent with Deep Reinforcement Learning
+# Learning to Paint with Model-based Deep Reinforcement Learning
 
 ---> https://arxiv.org/abs/1903.04411
 
 ---> [Reddit](https://www.reddit.com/r/computervision/comments/b01ksx/strokebased_artistic_rendering_agent_with_deep/) Welcome to suggest our work!
 
-<div align=center>
-  
 ![Architecture](./image/main.jpg)
-
-![CelebA paintings stroke by stroke.](./image/step.png)
-
-</div>
 
 ## Abstract
 
-Excellent painters can use only a few strokes to create a fantastic painting, which is a symbol of human intelligence and art. Inverting a renderer or generator to interpret images is also a challenging task of computer vision in recent years. In this paper, we present SARA, a stroke-based artistic rendering agent that combines the neural renderer and deep reinforcement learning (DRL), allowing the machine to learn the ability to deconstruct images using strokes and create amazing visual effects. Our agent is an end-to-end program that converts natural images into paintings. The training process does not require the experience of human painting or stroke tracking data.
+We show how to teach machines to paint like human painters, who can use a few strokes to create fantastic paintings. By combining the neural renderer and model-based Deep Reinforcement Learning (DRL), our agent can decompose texture-rich images into strokes and make long-term plans. For each stroke, the agent directly determines the position and color of the stroke. Excellent visual effect can be achieved using hundreds of strokes. The training process does not require experience of human painting or stroke tracking data. 
 
 ## Installation
 Use [anaconda](https://conda.io/miniconda.html) to manage environment
@@ -43,7 +37,7 @@ $ tensorboard --logdir ./train_log --port=6006
 (The training process will be shown at http://127.0.0.1:6006)
 ```
 
-### RL Agent
+### Paint Agent
 After the neural renderer looks good enough, we can begin training the agent.
 ```
 $ python3 baseline/train.py --max_step=40
@@ -51,10 +45,12 @@ $ python3 baseline/train.py --max_step=40
 $ tensorboard --logdir ./train_log --port=6006
 ```
 
-We will provide you some trained parameters soon. We really hope someone will use these code to reproduce the results.
+We will provide you some trained parameters soon. 
 ## Results
 
-![ImageNet paintings](./image/imagenet.png)
+![CelebA paintings stroke by stroke.](./image/step.png)
+
+![Results](./image/results.png)
 
 If you find this repository useful for your research, please cite the following paper :
 
