@@ -10,7 +10,7 @@ We show how to teach machines to paint like human painters, who can use a few st
 <img src="./image/step.png" width="500">
 </div>
 
-![Architecture](./image/main.jpg)
+![Architecture](./image/main.png)
 
 ## Installation
 Use [anaconda](https://conda.io/miniconda.html) to manage environment
