@@ -53,12 +53,8 @@ def train(agent, env, evaluate):
             if step > args.warmup:
                 if step < 10000 * max_step:
                     lr = (3e-4, 1e-3)
-                elif step < 20000 * max_step:
-                    lr = (1e-4, 3e-4)
-                elif step < 30000 * max_step:
-                    lr = (3e-5, 1e-4)
                 else:
-                    lr = (1e-5, 3e-5)
+                    lr = (1e-4, 3e-4)
                 for i in range(episode_train_times):
                     Q, value_loss = agent.update_policy(lr)
                     tot_Q += Q.data.cpu().numpy()
@@ -98,7 +94,6 @@ if __name__ == "__main__":
     parser.add_argument('--output', default='./log/output', type=str, help='Resuming model path for testing')
     parser.add_argument('--debug', dest='debug', action='store_true', help='print some info')
     parser.add_argument('--seed', default=1234, type=int, help='random seed')
-    parser.add_argument('--vis', action='store_true', help='visualize each action or not')
     
     args = parser.parse_args()    
     args.output = get_output_folder(args.output, "Stroke")
@@ -110,8 +105,7 @@ if __name__ == "__main__":
     torch.backends.cudnn.benchmark = True
     from DRL.ddpg import DDPG
     from DRL.multi import fastenv
-    fenv = fastenv(args.max_step, args.env_batch, \
-                   writer, args.vis)    
+    fenv = fastenv(args.max_step, args.env_batch, writer)
     agent = DDPG(args.batch_size, args.env_batch, args.max_step, \
                  args.tau, args.discount, args.rmsize, \
                  writer, args.resume, args.output)
