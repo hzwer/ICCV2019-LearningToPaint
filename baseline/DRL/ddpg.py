@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.optim import Adam, SGD
-from Render.NSR import *
+from Renderer.model import *
 from DRL.rpm import rpm
 from DRL.actor import *
 from DRL.critic import *
@@ -20,8 +20,8 @@ coord = coord.to(device)
 
 criterion = nn.MSELoss()
 
-Decoder = FCN(128)
-Decoder.load_state_dict(torch.load('./NSR.pkl'))
+Decoder = FCN()
+Decoder.load_state_dict(torch.load('./renderer.pkl'))
 
 def decode(x, canvas): # b * (10 + 3)
     x = x.view(-1, 10 + 3)
@@ -50,8 +50,8 @@ class DDPG(object):
 
         self.actor = ResNet(9, 18, 65)
         self.actor_target = ResNet(9, 18, 65)
-        self.critic = ResNet_wobn(12, 18, 1) 
-        self.critic_target = ResNet_wobn(12, 18, 1)
+        self.critic = ResNet_wobn(9, 18, 1) 
+        self.critic_target = ResNet_wobn(9, 18, 1)
 
         self.actor_optim  = Adam(self.actor.parameters(), lr=1e-2)
         self.critic_optim  = Adam(self.critic.parameters(), lr=1e-2)
@@ -102,7 +102,7 @@ class DDPG(object):
         gan_reward = cal_reward(canvas1, gt) - cal_reward(canvas0, gt)
         # L2_reward = ((canvas0 - gt) ** 2).mean(1).mean(1).mean(1) - ((canvas1 - gt) ** 2).mean(1).mean(1).mean(1)        
         coord_ = coord.expand(state.shape[0], 2, 128, 128)
-        merged_state = torch.cat([canvas0, canvas1, gt, (T + 1).float() / self.max_step, coord_], 1)
+        merged_state = torch.cat([canvas1, gt, (T + 1).float() / self.max_step, coord_], 1)
         if target:
             Q = self.critic_target(merged_state)
             return (Q + gan_reward), gan_reward

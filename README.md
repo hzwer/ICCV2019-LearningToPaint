@@ -35,7 +35,7 @@ To create a differentiable painting environment, we need train the neural render
 
 ```
 $ python3 baseline/train_renderer.py
-$ tensorboard --logdir ./train_log --port=6006
+$ tensorboard --logdir train_log --port=6006
 (The training process will be shown at http://127.0.0.1:6006)
 ```
 
@@ -44,7 +44,7 @@ After the neural renderer looks good enough, we can begin training the agent.
 ```
 $ python3 baseline/train.py --max_step=40
 (A step contains 5 strokes in default.)
-$ tensorboard --logdir ./train_log --port=6006
+$ tensorboard --logdir train_log --port=6006
 ```
 
 We will provide you some trained parameters soon. 
@@ -55,9 +55,8 @@ We will provide you some trained parameters soon.
 If you find this repository useful for your research, please cite the following paper:
 
 ```
-@article{huang2019stroke,
-  title={Stroke-based Artistic Rendering Agent with Deep Reinforcement Learning
-},
+@article{huang2019learning,
+  title={Learning to Paint with Model-based Deep Reinforcement Learning},
   author={Huang, Zhewei and Heng, Wen and Zhou, Shuchang},
   journal={arXiv preprint arXiv:1903.04411},
   year={2019}
