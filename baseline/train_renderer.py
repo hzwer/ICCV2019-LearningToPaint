@@ -22,12 +22,12 @@ step = 0
 def save_model():
     if use_cuda:
         net.cpu()
-    torch.save(net.state_dict(),'./NSR.pkl')
+    torch.save(net.state_dict(),'./renderer.pkl')
     if use_cuda:
         net.cuda()
 
 def load_weights():
-    pretrained_dict=torch.load('./SNR.pkl')
+    pretrained_dict=torch.load('./renderer.pkl')
     model_dict=net.state_dict()
     pretrained_dict = {k: v for k, v in pretrained_dict.items() if k in model_dict}
     model_dict.update(pretrained_dict)
