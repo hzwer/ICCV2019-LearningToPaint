@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-import torch.nn.functional as F  
+import torch.nn.functional as F
 import torch.nn.utils.weight_norm as weightNorm
 
 class FCN(nn.Module):
