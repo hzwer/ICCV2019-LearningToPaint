@@ -2,3 +2,4 @@
 *.py~
 
 data/
+*.pkl
