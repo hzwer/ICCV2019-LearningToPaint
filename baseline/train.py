@@ -42,10 +42,11 @@ def train(agent, env, evaluate):
                 # [optional] evaluate
                 if episode > 0 and validate_interval > 0 and episode % validate_interval == 0:
                     reward, dist = evaluate(env, agent.select_action, debug=debug)
-                    if debug: prRed('Step_{:07d}: mean_reward:{:.3f} mean_dist:{:.3f} var_dist:{:.3f}'.format(step, np.mean(reward), np.mean(dist), np.var(dist)))
+                    if debug: prRed('Step_{:07d}: mean_reward:{:.3f} mean_dist:{:.3f} var_dist:{:.3f}'.format(step - 1, np.mean(reward), np.mean(dist), np.var(dist)))
                     writer.add_scalar('validate/mean_reward', np.mean(reward), step)
                     writer.add_scalar('validate/mean_dist', np.mean(dist), step)
                     writer.add_scalar('validate/var_dist', np.var(dist), step)
+                    agent.save_model(output)
             train_time_interval = time.time() - time_stamp
             time_stamp = time.time()
             tot_Q = 0.
@@ -70,7 +71,6 @@ def train(agent, env, evaluate):
             observation = None
             episode_steps = 0
             episode += 1
-    agent.save_model(output)
     
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Stroke Extraction')

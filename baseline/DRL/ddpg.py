@@ -190,13 +190,14 @@ class DDPG(object):
         if path is None: return
         self.actor.load_state_dict(torch.load('{}/actor.pkl'.format(path)))
         self.critic.load_state_dict(torch.load('{}/critic.pkl'.format(path)))
+        load_gan(path)
         
     def save_model(self, path):
-        if self.cuda:
-            self.actor.cpu()
-            self.critic.cpu()
+        self.actor.cpu()
+        self.critic.cpu()
         torch.save(self.actor.state_dict(),'{}/actor.pkl'.format(path))
-        torch.save(self.critic.state_dict(),'{}/critic.pkl'.format(path))        
+        torch.save(self.critic.state_dict(),'{}/critic.pkl'.format(path))
+        save_gan(path)
         self.choose_device()
 
     def eval(self):
