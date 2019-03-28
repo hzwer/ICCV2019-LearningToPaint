@@ -49,7 +49,6 @@ class Paint:
             finally:
                 if (i + 1) % 10000 == 0:                    
                     print('loaded {} images'.format(i + 1))
-                    break
         print('finish loading data, {} training images, {} testing images'.format(str(train_num), str(test_num)))
         
     def pre_data(self, id, test):
