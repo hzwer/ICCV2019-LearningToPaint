@@ -47,6 +47,7 @@ $ python3 baseline/train.py --max_step=40 --debug --batch_size=96
 $ tensorboard --logdir train_log --port=6006
 ```
 
+Download the trained neural renderer: [renderer.pkl](https://drive.google.com/open?id=1-7dVdjCIZIxh8hHJnGTK-RA1-jL1tor4)
 We will provide you some trained parameters soon. 
 ## Results
 
