@@ -43,4 +43,4 @@ for i in range(args.max_step):
 
 output = canvas[0].detach().numpy()
 output = np.transpose(output, (1, 2, 0))
-cv2.imwrite('./generated.png', (output * 255).astype('uint8'))
+cv2.imwrite('image/generated.png', (output * 255).astype('uint8'))
