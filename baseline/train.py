@@ -11,7 +11,7 @@ import time
 exp = os.path.abspath('.').split('/')[-1]
 writer = TensorBoard('../train_log/{}'.format(exp))
 os.system('ln -sf ../train_log/{} ./log'.format(exp))
-os.system('mkdir ./log/output')
+os.system('mkdir ./model')
 
 def train(agent, env, evaluate):
     train_times = args.train_times
@@ -73,7 +73,7 @@ def train(agent, env, evaluate):
             episode += 1
     
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Stroke Extraction')
+    parser = argparse.ArgumentParser(description='Learning to Paint')
 
     # hyper-parameter
     parser.add_argument('--warmup', default=400, type=int, help='timestep without training but only filling the replay memory')
@@ -84,19 +84,17 @@ if __name__ == "__main__":
     parser.add_argument('--tau', default=0.001, type=float, help='moving average for target network')
     parser.add_argument('--max_step', default=40, type=int, help='max length for episode')
     parser.add_argument('--noise_factor', default=0, type=float, help='noise level for parameter space noise')
-    
-    # other-arguments
     parser.add_argument('--validate_interval', default=50, type=int, help='how many episodes to perform a validation')
     parser.add_argument('--validate_episodes', default=5, type=int, help='how many episode to perform during validation')
     parser.add_argument('--train_times', default=2000000, type=int, help='total traintimes')
     parser.add_argument('--episode_train_times', default=10, type=int, help='train times for each episode')    
     parser.add_argument('--resume', default=None, type=str, help='Resuming model path for testing')
-    parser.add_argument('--output', default='./log/output', type=str, help='Resuming model path for testing')
+    parser.add_argument('--output', default='./model', type=str, help='Resuming model path for testing')
     parser.add_argument('--debug', dest='debug', action='store_true', help='print some info')
     parser.add_argument('--seed', default=1234, type=int, help='random seed')
     
     args = parser.parse_args()    
-    args.output = get_output_folder(args.output, "Stroke")
+    args.output = get_output_folder(args.output, "Paint")
     np.random.seed(args.seed)
     torch.manual_seed(args.seed)
     if torch.cuda.is_available(): torch.cuda.manual_seed_all(args.seed)
