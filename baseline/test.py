@@ -25,7 +25,7 @@ for i in range(width):
         coord[0, 1, i, j] = j / (width - 1.)
 coord = coord.to(device) # Coordconv
 
-img = cv2.imread('./image/test.png', cv2.IMREAD_UNCHANGED)
+img = cv2.imread('./image/test.png', cv2.IMREAD_COLOR)
 img = cv2.resize(img, (width, width))
 img = np.transpose(img, (2, 0, 1))
 img = torch.tensor(img).to(device).reshape(1, -1, width, width).float() / 255.
@@ -34,6 +34,8 @@ actor.load_state_dict(torch.load(args.path + '/actor.pkl'))
 actor = actor.to(device).eval()
 
 canvas = torch.zeros([1, 3, width, width]).to(device)
+
+print(canvas.shape, img.shape)
 
 for i in range(args.max_step):
     stepnum = T * i / args.max_step
