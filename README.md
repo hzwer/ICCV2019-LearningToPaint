@@ -47,9 +47,16 @@ $ python3 baseline/train.py --max_step=40 --debug --batch_size=96
 $ tensorboard --logdir train_log --port=6006
 ```
 
+### Test the model
+```
+$ python3 baseline/test.py --max_step=40 --path='./model/Paint-run1'
+$ open image/generated.png
+(you can replace the test image at image/test.png)
+```
+
 Download the trained neural renderer: [renderer.pkl](https://drive.google.com/open?id=1-7dVdjCIZIxh8hHJnGTK-RA1-jL1tor4)
 
-We will provide you some trained actor and the tutorial to use it soon. 
+We will provide you some trained actor soon. 
 ## Results
 
 ![Results](./image/results.png)
