@@ -17,7 +17,7 @@ parser.add_argument('--max_step', default=40, type=int, help='max length for epi
 parser.add_argument('--path', default='./model/Paint-run1/', type=str, help='Actor model path')
 args = parser.parse_args()
 
-T = torch.ones([1, 1, width, width], dtype=torch.float32)
+T = torch.ones([1, 1, width, width], dtype=torch.float32).to(device)
 
 coord = torch.zeros([1, 2, width, width])
 for i in range(width):
@@ -49,10 +49,9 @@ img = torch.tensor(img).to(device).reshape(1, -1, width, width).float() / 255.
 actor = ResNet(9, 18, 65) # action_bundle = 5, 65 = 5 * 13
 actor.load_state_dict(torch.load(args.path + '/actor.pkl'))
 actor = actor.to(device).eval()
+Decoder = Decoder.to(device).eval()
 
 canvas = torch.zeros([1, 3, width, width]).to(device)
-
-print(canvas.shape, img.shape)
 
 for i in range(args.max_step):
     stepnum = T * i / args.max_step
@@ -60,6 +59,6 @@ for i in range(args.max_step):
     canvas = decode(actions, canvas)
     print('step {}, L2Loss = {}'.format(i, ((canvas - img) ** 2).mean()))
 
-output = canvas[0].detach().numpy()
+output = canvas[0].detach().cpu().numpy()
 output = np.transpose(output, (1, 2, 0))
 cv2.imwrite('image/generated.png', (output * 255).astype('uint8'))
