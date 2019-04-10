@@ -7,7 +7,8 @@ import torch.nn.functional as F
 
 from DRL.actor import *
 from Renderer.stroke_gen import *
-from DRL.ddpg import decode
+from Renderer.model import *
+
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 width = 128
 
@@ -24,6 +25,22 @@ for i in range(width):
         coord[0, 0, i, j] = i / (width - 1.)
         coord[0, 1, i, j] = j / (width - 1.)
 coord = coord.to(device) # Coordconv
+
+Decoder = FCN()
+Decoder.load_state_dict(torch.load('./renderer.pkl'))
+
+def decode(x, canvas): # b * (10 + 3)
+    x = x.view(-1, 10 + 3)
+    stroke = 1 - Decoder(x[:, :10])
+    stroke = stroke.view(-1, 128, 128, 1)
+    color_stroke = stroke * x[:, -3:].view(-1, 1, 1, 3)
+    stroke = stroke.permute(0, 3, 1, 2)
+    color_stroke = color_stroke.permute(0, 3, 1, 2)
+    stroke = stroke.view(-1, 5, 1, 128, 128)
+    color_stroke = color_stroke.view(-1, 5, 3, 128, 128)
+    for i in range(5):
+        canvas = canvas * (1 - stroke[:, i]) + color_stroke[:, i]
+    return canvas
 
 img = cv2.imread('./image/test.png', cv2.IMREAD_COLOR)
 img = cv2.resize(img, (width, width))
