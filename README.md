@@ -21,9 +21,9 @@ $ source activate py36
 ```
 
 ### Dependencies
-* [PyTorch](http://pytorch.org/) 0.4 
+* [PyTorch](http://pytorch.org/) 0.4.1 
 * [tensorboardX](https://github.com/lanpa/tensorboard-pytorch/tree/master/tensorboardX)
-* [opencv-python](https://pypi.org/project/opencv-python/)
+* [opencv-python](https://pypi.org/project/opencv-python/) 3.4.0
 
 ### Datasets
 Download the [CelebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) dataset and put the aligned images in data/img_align_celeba/\*\*\*\*\*\*.jpg
