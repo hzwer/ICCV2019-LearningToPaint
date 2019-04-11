@@ -58,10 +58,8 @@ You can download a trained neural renderer and a CelebA actor for test: [rendere
 
 Make sure there are ./renderer.pkl and ./model/Paint-run1/actor.pkl before testing.
 
-We also provide with some other neural renders:
-[triangle.pkl](https://drive.google.com/open?id=1YefdnTuKlvowCCo1zxHTwVJ2GlBme_eE)
-[round.pkl](https://drive.google.com/open?id=1kI4yXQ7IrNTfjFs2VL7IBBL_JJwkW6rl)
-[bezierwotrans.pkl](https://drive.google.com/open?id=1XUdti00mPRh1-1iU66Uqg4qyMKk4OL19)
+We also provide with some other neural renderers, you can use them instead of renderer.pkl to train the agent:
+[triangle.pkl](https://drive.google.com/open?id=1YefdnTuKlvowCCo1zxHTwVJ2GlBme_eE), [round.pkl](https://drive.google.com/open?id=1kI4yXQ7IrNTfjFs2VL7IBBL_JJwkW6rl), [bezierwotrans.pkl](https://drive.google.com/open?id=1XUdti00mPRh1-1iU66Uqg4qyMKk4OL19)
 
 ## Results
 
