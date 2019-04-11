@@ -54,8 +54,10 @@ def train(agent, env, evaluate):
             if step > args.warmup:
                 if step < 10000 * max_step:
                     lr = (3e-4, 1e-3)
-                else:
+                elif step < 20000 * max_step:
                     lr = (1e-4, 3e-4)
+                else:
+                    lr = (3e-5, 1e-5)
                 for i in range(episode_train_times):
                     Q, value_loss = agent.update_policy(lr)
                     tot_Q += Q.data.cpu().numpy()
