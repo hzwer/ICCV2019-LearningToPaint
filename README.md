@@ -54,9 +54,14 @@ $ open image/generated.png
 (you can replace the test image at image/test.png)
 ```
 
-You can download a trained neural renderer and a CelebA actor for test: [renderer.pkl](https://drive.google.com/open?id=1-7dVdjCIZIxh8hHJnGTK-RA1-jL1tor4) and [actor.pkl](https://drive.google.com/file/d/1d4LJrzZcvDsIpLOIuDKRinoDe5-vL139/view?usp=sharing)
+You can download a trained neural renderer and a CelebA actor for test: [renderer.pkl](https://drive.google.com/open?id=1-7dVdjCIZIxh8hHJnGTK-RA1-jL1tor4) and [actor.pkl](https://drive.google.com/open?id=1FkDJOhe-SM7oygzF0NZT_zPa1lpla-aO)
 
 Make sure there are ./renderer.pkl and ./model/Paint-run1/actor.pkl before testing.
+
+We also provide with some other neural renders:
+[triangle.pkl](https://drive.google.com/open?id=1YefdnTuKlvowCCo1zxHTwVJ2GlBme_eE)
+[round.pkl](https://drive.google.com/open?id=1kI4yXQ7IrNTfjFs2VL7IBBL_JJwkW6rl)
+[bezierwotrans.pkl](https://drive.google.com/open?id=1XUdti00mPRh1-1iU66Uqg4qyMKk4OL19)
 
 ## Results
 
