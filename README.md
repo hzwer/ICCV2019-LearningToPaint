@@ -54,9 +54,10 @@ $ open image/generated.png
 (you can replace the test image at image/test.png)
 ```
 
-Download the trained neural renderer: [renderer.pkl](https://drive.google.com/open?id=1-7dVdjCIZIxh8hHJnGTK-RA1-jL1tor4)
+You can download a trained neural renderer and a CelebA actor for test: [renderer.pkl](https://drive.google.com/open?id=1-7dVdjCIZIxh8hHJnGTK-RA1-jL1tor4) and [actor.pkl](https://drive.google.com/file/d/1d4LJrzZcvDsIpLOIuDKRinoDe5-vL139/view?usp=sharing)
 
-We will provide you some trained actor soon. 
+Make sure there are ./renderer.pkl and ./model/Paint-run1/actor.pkl before testing.
+
 ## Results
 
 ![Results](./image/results.png)
@@ -71,3 +72,6 @@ If you find this repository useful for your research, please cite the following 
   year={2019}
 }
 ```
+
+## Resources
+- A Chinese introduction [Learning to Paint：一个绘画 AI](https://zhuanlan.zhihu.com/p/61761901)
