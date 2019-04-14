@@ -25,5 +25,5 @@ class TensorBoard(object):
         self.summary_writer.add_summary(summary, global_step=step)
 
     def add_scalar(self, tag, value, step):
-        summary= Summary(value=[Summary.Value(tag=tag, simple_value=value)])
+        summary = Summary(value=[Summary.Value(tag=tag, simple_value=value)])
         self.summary_writer.add_summary(summary, global_step=step)
