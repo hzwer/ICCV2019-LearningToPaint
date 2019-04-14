@@ -53,11 +53,12 @@ Decoder = Decoder.to(device).eval()
 
 canvas = torch.zeros([1, 3, width, width]).to(device)
 
-for i in range(args.max_step):
-    stepnum = T * i / args.max_step
-    actions = actor(torch.cat([canvas, img, stepnum, coord], 1))
-    canvas = decode(actions, canvas)
-    print('step {}, L2Loss = {}'.format(i, ((canvas - img) ** 2).mean()))
+with torch.no_grad():
+    for i in range(args.max_step):
+        stepnum = T * i / args.max_step
+        actions = actor(torch.cat([canvas, img, stepnum, coord], 1))
+        canvas = decode(actions, canvas)
+        print('step {}, L2Loss = {}'.format(i, ((canvas - img) ** 2).mean()))
 
 output = canvas[0].detach().cpu().numpy()
 output = np.transpose(output, (1, 2, 0))
