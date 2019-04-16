@@ -10,6 +10,8 @@ We show how to teach machines to paint like human painters, who can use a few st
 
 [![paint process](https://img.youtube.com/vi/yAIdx-u_Eoo/0.jpg)](https://www.youtube.com/watch?v=yAIdx-u_Eoo)
 
+**Mona Lisa** using different renderers
+
 ![Lisa0](./image/lisa.png)![Lisa0](./image/lisa_0.png)![Lisa0](./image/lisa_1.png)![Lisa0](./image/lisa_2.png)
 
 ![Architecture](./image/main.png)
