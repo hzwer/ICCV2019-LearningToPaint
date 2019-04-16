@@ -3,3 +3,5 @@
 
 data/
 *.pkl
+
+output/*

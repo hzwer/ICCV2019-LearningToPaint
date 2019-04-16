@@ -6,6 +6,8 @@
 
 We show how to teach machines to paint like human painters, who can use a few strokes to create fantastic paintings. By combining the neural renderer and model-based Deep Reinforcement Learning (DRL), our agent can decompose texture-rich images into strokes and make long-term plans. For each stroke, the agent directly determines the position and color of the stroke. Excellent visual effect can be achieved using hundreds of strokes. The training process does not require experience of human painting or stroke tracking data. 
 
+![Demo](https://github.com/hzwer/NIPS2017-LearningToRun/raw/master/image/video.mp4)
+
 ![Lisa0](./image/lisa.png)![Lisa0](./image/lisa_0.png)![Lisa0](./image/lisa_1.png)![Lisa0](./image/lisa_2.png)
 
 ![Architecture](./image/main.png)
@@ -71,15 +73,6 @@ We also provide with some other neural renderers and agents, you can use them in
 <div align=center>
 <img src="./image/step.png" width="500">
 </div>
-
-**Celebrities**
-
-![JayChou](./image/JayChou.png)![JayChou](./image/JayChou_0.png)![Leslie](./image/Leslie.png)![Leslie](./image/Leslie_0.png)![mayun](./image/mayun.png)![mayun](./image/mayun_0.png)
-![Trump](./image/Trump.png)![Trump](./image/Trump_0.png)![degang](./image/degang.png)![degang](./image/degang_0.png)![chaoyue](./image/chaoyue.png)![chaoyue](./image/chaoyue_0.png)
-
-**Animals**
-
-![panda](./image/panda.png)![panda](./image/panda_0.png)![dog](./image/dog.png)![dog](./image/dog_0.png)![cat](./image/cat.png)![cat](./image/cat_0.png)
 
 ![Results](./image/results.png)
 
