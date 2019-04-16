@@ -16,6 +16,7 @@ parser = argparse.ArgumentParser(description='Learning to Paint')
 parser.add_argument('--max_step', default=40, type=int, help='max length for episode')
 parser.add_argument('--actor', default='./model/Paint-run1/actor.pkl', type=str, help='Actor model')
 parser.add_argument('--renderer', default='./renderer.pkl', type=str, help='renderer model')
+parser.add_argument('--img', default='image/test.png', type=str, help='test image')
 args = parser.parse_args()
 
 T = torch.ones([1, 1, width, width], dtype=torch.float32).to(device)
@@ -43,7 +44,7 @@ def decode(x, canvas): # b * (10 + 3)
         canvas = canvas * (1 - stroke[:, i]) + color_stroke[:, i]
     return canvas
 
-img = cv2.imread('./image/test.png', cv2.IMREAD_COLOR)
+img = cv2.imread(args.img, cv2.IMREAD_COLOR)
 img = cv2.resize(img, (width, width))
 img = np.transpose(img, (2, 0, 1))
 img = torch.tensor(img).to(device).reshape(1, -1, width, width).float() / 255.
