@@ -49,7 +49,7 @@ $ tensorboard --logdir train_log --port=6006
 
 ### Test the model
 ```
-$ python3 baseline/test.py --max_step=40 --path='./model/Paint-run1'
+$ python3 baseline/test.py --max_step=200 --actor=model/Paint-run1/actor.pkl --renderer=renderer.pkl
 $ open image/generated.png
 (you can replace the test image at image/test.png)
 ```
