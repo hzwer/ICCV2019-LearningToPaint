@@ -49,17 +49,22 @@ $ tensorboard --logdir train_log --port=6006
 
 ### Test the model
 ```
-$ python3 baseline/test.py --max_step=200 --actor=model/Paint-run1/actor.pkl --renderer=renderer.pkl
+$ python3 baseline/test.py --max_step=200 --actor=actor.pkl --renderer=renderer.pkl
 $ open image/generated.png
 (you can replace the test image at image/test.png)
 ```
 
-You can download a trained neural renderer and a CelebA actor for test: [renderer.pkl](https://drive.google.com/open?id=1-7dVdjCIZIxh8hHJnGTK-RA1-jL1tor4) and [actor.pkl](https://drive.google.com/open?id=1FkDJOhe-SM7oygzF0NZT_zPa1lpla-aO)
+You can download a trained neural renderer and a CelebA actor for test: [renderer.pkl](https://drive.google.com/open?id=1-7dVdjCIZIxh8hHJnGTK-RA1-jL1tor4) and [actor.pkl](https://drive.google.com/open?id=1a3vpKgjCVXHON4P7wodqhCgCMPgg1KeR)
 
-Make sure there are ./renderer.pkl and ./model/Paint-run1/actor.pkl before testing.
+Make sure there are renderer.pkl and actor.pkl before testing.
 
-We also provide with some other neural renderers, you can use them instead of renderer.pkl to train the agent:
-[triangle.pkl](https://drive.google.com/open?id=1YefdnTuKlvowCCo1zxHTwVJ2GlBme_eE), [round.pkl](https://drive.google.com/open?id=1kI4yXQ7IrNTfjFs2VL7IBBL_JJwkW6rl), [bezierwotrans.pkl](https://drive.google.com/open?id=1XUdti00mPRh1-1iU66Uqg4qyMKk4OL19)
+We also provide with some other neural renderers and agents, you can use them instead of renderer.pkl to train the agent:
+
+[triangle.pkl](https://drive.google.com/open?id=1YefdnTuKlvowCCo1zxHTwVJ2GlBme_eE) --- [actor_triangle.pkl](https://drive.google.com/open?id=1k8cgh3tF7hKFk-IOZrgsUwlTVE3CbcPF);
+
+[round.pkl](https://drive.google.com/open?id=1kI4yXQ7IrNTfjFs2VL7IBBL_JJwkW6rl) --- [actor_round.pkl](https://drive.google.com/open?id=1ewDErUhPeGsEcH8E5a2QAcUBECeaUTZe);
+
+[bezierwotrans.pkl](https://drive.google.com/open?id=1XUdti00mPRh1-1iU66Uqg4qyMKk4OL19)
 
 ## Results
 
