@@ -70,7 +70,7 @@ We also provide with some other neural renderers and agents, you can use them in
 <img src="./image/step.png" width="500">
 </div>
 
-**Celebrity**
+**Celebrities**
 
 ![JayChou](./image/JayChou.png)![JayChou](./image/JayChou_0.png)![Leslie](./image/Leslie.png)![Leslie](./image/Leslie_0.png)![mayun](./image/mayun.png)![mayun](./image/mayun_0.png)
 ![Trump](./image/Trump.png)![Trump](./image/Trump_0.png)![degang](./image/degang.png)![degang](./image/degang_0.png)![chaoyue](./image/chaoyue.png)![chaoyue](./image/chaoyue_0.png)
