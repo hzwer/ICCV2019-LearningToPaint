@@ -48,7 +48,9 @@ $ tensorboard --logdir train_log --port=6006
 ### Test the model
 ```
 $ python3 baseline/test.py --max_step=200 --actor=actor.pkl --renderer=renderer.pkl --img=image/test.png
-$ open image/generated.png
+$ open output
+$ ffmpeg -r 10 -f image2 -i output/generated%d.png -s 256x256 video.mp4
+(make a painting process video)
 (you can replace the actor, renderer and test image)
 ```
 
