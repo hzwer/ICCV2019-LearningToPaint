@@ -77,9 +77,7 @@ We also provide with some other neural renderers and agents, you can use them in
 
 **Animals**
 
-![panda](./image/panda.png)![panda](./image/panda_0.png)![dog](./image/dog.png)![dog](./image/dog_0.png)
-
-![kangroo](./image/kangroo.png)![kangroo](./image/kangroo_0.png)![cat](./image/cat.png)![cat](./image/cat_0.png)
+![panda](./image/panda.png)![panda](./image/panda_0.png)![dog](./image/dog.png)![dog](./image/dog_0.png)![cat](./image/cat.png)![cat](./image/cat_0.png)
 
 ![Results](./image/results.png)
 
