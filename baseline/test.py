@@ -14,7 +14,8 @@ width = 128
 
 parser = argparse.ArgumentParser(description='Learning to Paint')
 parser.add_argument('--max_step', default=40, type=int, help='max length for episode')
-parser.add_argument('--path', default='./model/Paint-run1/', type=str, help='Actor model path')
+parser.add_argument('--actor', default='./model/Paint-run1/actor.pkl', type=str, help='Actor model')
+parser.add_argument('--renderer', default='./renderer.pkl', type=str, help='renderer model')
 args = parser.parse_args()
 
 T = torch.ones([1, 1, width, width], dtype=torch.float32).to(device)
@@ -27,7 +28,7 @@ for i in range(width):
 coord = coord.to(device) # Coordconv
 
 Decoder = FCN()
-Decoder.load_state_dict(torch.load('./renderer.pkl'))
+Decoder.load_state_dict(torch.load(args.renderer))
 
 def decode(x, canvas): # b * (10 + 3)
     x = x.view(-1, 10 + 3)
@@ -47,7 +48,7 @@ img = cv2.resize(img, (width, width))
 img = np.transpose(img, (2, 0, 1))
 img = torch.tensor(img).to(device).reshape(1, -1, width, width).float() / 255.
 actor = ResNet(9, 18, 65) # action_bundle = 5, 65 = 5 * 13
-actor.load_state_dict(torch.load(args.path + '/actor.pkl'))
+actor.load_state_dict(torch.load(args.actor))
 actor = actor.to(device).eval()
 Decoder = Decoder.to(device).eval()
 
