@@ -6,13 +6,13 @@
 
 We show how to teach machines to paint like human painters, who can use a few strokes to create fantastic paintings. By combining the neural renderer and model-based Deep Reinforcement Learning (DRL), our agent can decompose texture-rich images into strokes and make long-term plans. For each stroke, the agent directly determines the position and color of the stroke. Excellent visual effect can be achieved using hundreds of strokes. The training process does not require experience of human painting or stroke tracking data. 
 
-**YouTube demo**
+**YouTube demo** (click to play) 
 
 [![paint process](https://img.youtube.com/vi/yAIdx-u_Eoo/0.jpg)](https://www.youtube.com/watch?v=yAIdx-u_Eoo)
 
 **Mona Lisa** using different renderers
 
-![Lisa0](./image/lisa.png)![Lisa0](./image/lisa_0.png)![Lisa0](./image/lisa_1.png)![Lisa0](./image/lisa_2.png)
+![Lisa0](./image/lisa.png) ![Lisa0](./image/lisa_0.png) ![Lisa0](./image/lisa_1.png) ![Lisa0](./image/lisa_2.png)
 
 ![Architecture](./image/main.png)
 
@@ -54,10 +54,8 @@ $ tensorboard --logdir train_log --port=6006
 ### Test the model
 ```
 $ python3 baseline/test.py --max_step=200 --actor=actor.pkl --renderer=renderer.pkl --img=image/test.png
-$ open output
 $ ffmpeg -r 10 -f image2 -i output/generated%d.png -s 256x256 -vcodec mpeg4 video.mp4
 (make a painting process video)
-(you can replace the actor, renderer and test image)
 ```
 
 You can download a trained neural renderer and a CelebA actor for test: [renderer.pkl](https://drive.google.com/open?id=1-7dVdjCIZIxh8hHJnGTK-RA1-jL1tor4) and [actor.pkl](https://drive.google.com/open?id=1a3vpKgjCVXHON4P7wodqhCgCMPgg1KeR)
