@@ -92,3 +92,8 @@ If you find this repository useful for your research, please cite the following 
 
 ## Resources
 - A Chinese introduction [Learning to Paint：一个绘画 AI](https://zhuanlan.zhihu.com/p/61761901)
+
+## Contributors
+
+- [hzwer](https://github.com/hzwer)
+- [ak9250](https://github.com/ak9250)
