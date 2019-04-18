@@ -16,7 +16,7 @@ We show how to teach machines to paint like human painters, who can use a few st
 
 ![Architecture](./image/main.png)
 
-You can easily use [colaboratory](https://colab.research.google.com/github/hzwer/LearningToPaint/blob/master/LearningToPaint.ipynb) to have a try.
+You can easily use [colaboratory](https://colab.research.google.com/github/hzwer/LearningToPaint/blob/master/LearningToPaint.ipynb) to have a try. (Python3 TPU)
 ## Installation
 Use [anaconda](https://conda.io/miniconda.html) to manage environment
 
