@@ -6,6 +6,8 @@
 
 We show how to teach machines to paint like human painters, who can use a few strokes to create fantastic paintings. By combining the neural renderer and model-based Deep Reinforcement Learning (DRL), our agent can decompose texture-rich images into strokes and make long-term plans. For each stroke, the agent directly determines the position and color of the stroke. Excellent visual effect can be achieved using hundreds of strokes. The training process does not require experience of human painting or stroke tracking data. 
 
+You can easily use [colaboratory](https://colab.research.google.com/github/hzwer/LearningToPaint/blob/master/LearningToPaint.ipynb) to have a try.
+
 **YouTube demo** (click to play) 
 
 [![paint process](https://img.youtube.com/vi/yAIdx-u_Eoo/0.jpg)](https://www.youtube.com/watch?v=yAIdx-u_Eoo)
@@ -16,7 +18,6 @@ We show how to teach machines to paint like human painters, who can use a few st
 
 ![Architecture](./image/main.png)
 
-You can easily use [colaboratory](https://colab.research.google.com/github/hzwer/LearningToPaint/blob/master/LearningToPaint.ipynb) to have a try. (Python3 TPU)
 ## Installation
 Use [anaconda](https://conda.io/miniconda.html) to manage environment
 
