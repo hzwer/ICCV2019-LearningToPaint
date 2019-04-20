@@ -10,7 +10,7 @@ You can easily use [colaboratory](https://colab.research.google.com/github/hzwer
 
 **YouTube demo** (click to play) 
 
-[![paint process](https://img.youtube.com/vi/lvLYltXsDTM/0.jpg)](https://www.youtube.com/watch?v=lvLYltXsDTM)
+[![paint process](https://img.youtube.com/vi/UqE5cytdrdc/0.jpg)](https://www.youtube.com/watch?v=UqE5cytdrdc)
 
 **Mona Lisa** using different renderers and spliced lisa 
 
