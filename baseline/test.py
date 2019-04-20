@@ -41,9 +41,11 @@ def decode(x, canvas): # b * (10 + 3)
     color_stroke = color_stroke.permute(0, 3, 1, 2)
     stroke = stroke.view(-1, 5, 1, 128, 128)
     color_stroke = color_stroke.view(-1, 5, 3, 128, 128)
+    res = []
     for i in range(5):
         canvas = canvas * (1 - stroke[:, i]) + color_stroke[:, i]
-    return canvas
+        res.append(canvas[0])
+    return canvas, res
 
 img = cv2.imread(args.img, cv2.IMREAD_COLOR)
 img = cv2.resize(img, (width, width))
@@ -65,8 +67,9 @@ with torch.no_grad():
     for i in range(args.max_step):
         stepnum = T * i / args.max_step
         actions = actor(torch.cat([canvas, img, stepnum, coord], 1))
-        canvas = decode(actions, canvas)
+        canvas, res = decode(actions, canvas)
         print('step {}, L2Loss = {}'.format(i, ((canvas - img) ** 2).mean()))
-        output = canvas[0].detach().cpu().numpy()
-        output = np.transpose(output, (1, 2, 0))
-        cv2.imwrite('output/generated'+str(i+1)+'.png', (output * 255).astype('uint8'))
+        for j in range(5):
+            output = res[j].detach().cpu().numpy()
+            output = np.transpose(output, (1, 2, 0))
+            cv2.imwrite('output/generated' + str(i * 5 + j + 1) + '.png', (output * 255).astype('uint8'))
