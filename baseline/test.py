@@ -18,9 +18,11 @@ parser.add_argument('--max_step', default=40, type=int, help='max length for epi
 parser.add_argument('--actor', default='./model/Paint-run1/actor.pkl', type=str, help='Actor model')
 parser.add_argument('--renderer', default='./renderer.pkl', type=str, help='renderer model')
 parser.add_argument('--img', default='image/test.png', type=str, help='test image')
-parser.add_argument('--imgid', default=0, type=int, help='test image')
+parser.add_argument('--imgid', default=0, type=int, help='set begin number for generated image')
+parser.add_argument('--divide', default=4, type=int, help='divide the target image to get better resolution')
 args = parser.parse_args()
 
+canvas_cnt = args.divide * args.divide
 T = torch.ones([1, 1, width, width], dtype=torch.float32).to(device)
 
 coord = torch.zeros([1, 2, width, width])
@@ -45,33 +47,77 @@ def decode(x, canvas): # b * (10 + 3)
     res = []
     for i in range(5):
         canvas = canvas * (1 - stroke[:, i]) + color_stroke[:, i]
-        res.append(canvas[0])
+        res.append(canvas)
     return canvas, res
 
-img = cv2.imread(args.img, cv2.IMREAD_COLOR)
-img = cv2.resize(img, (width, width))
-img = np.transpose(img, (2, 0, 1))
-img = torch.tensor(img).to(device).reshape(1, -1, width, width).float() / 255.
+def small2large(x):
+    # (d * d, 128, 128) -> (d * 128, d * 128)    
+    x = x.reshape(args.divide, args.divide, width, width, -1)
+    x = np.transpose(x, (0, 2, 1, 3, 4))
+    x = x.reshape(args.divide * width, args.divide * width, -1)
+    return x
+
+def large2small(x):
+    # (d * 128, d * 128) -> (d * d, 128, 128)
+    x = x.reshape(args.divide, width, args.divide, width, 3)
+    x = np.transpose(x, (0, 2, 1, 3, 4))
+    x = x.reshape(canvas_cnt, 128, 128, 3)
+    return x
+
+def save_img(res, imgid, divide=False):
+    output = res[j].detach().cpu().numpy() # d * d, 3, 128, 128    
+    output = np.transpose(output, (0, 2, 3, 1))
+    if divide:
+        output = small2large(output)
+    else:
+        output = output[0]
+    cv2.imwrite('output/generated' + str(imgid) + '.png', (output * 255).astype('uint8'))
+
 actor = ResNet(9, 18, 65) # action_bundle = 5, 65 = 5 * 13
 actor.load_state_dict(torch.load(args.actor))
 actor = actor.to(device).eval()
 Decoder = Decoder.to(device).eval()
 
 canvas = torch.zeros([1, 3, width, width]).to(device)
-output = canvas[0].detach().cpu().numpy()
-output = np.transpose(output, (1, 2, 0))
+img = cv2.imread(args.img, cv2.IMREAD_COLOR)
+
+patch_img = cv2.resize(img, (width * args.divide, width * args.divide))
+patch_img = large2small(patch_img)
+patch_img = np.transpose(patch_img, (0, 3, 1, 2))
+patch_img = torch.tensor(patch_img).to(device).float() / 255.
+
+img = cv2.resize(img, (width, width))
+img = img.reshape(1, width, width, 3)
+img = np.transpose(img, (0, 3, 1, 2))
+img = torch.tensor(img).to(device).float() / 255.
 
 os.system('mkdir output')
-cv2.imwrite('output/generated{}.png'.format(args.imgid), (output * 255).astype('uint8'))
 
 with torch.no_grad():
+    if args.divide != 1:
+        args.max_step = args.max_step // 2
     for i in range(args.max_step):
         stepnum = T * i / args.max_step
         actions = actor(torch.cat([canvas, img, stepnum, coord], 1))
         canvas, res = decode(actions, canvas)
-        print('step {}, L2Loss = {}'.format(i, ((canvas - img) ** 2).mean()))
+        print('canvas step {}, L2Loss = {}'.format(i, ((canvas - img) ** 2).mean()))
         for j in range(5):
-            output = res[j].detach().cpu().numpy()
-            output = np.transpose(output, (1, 2, 0))
+            save_img(res, args.imgid)
             args.imgid += 1
-            cv2.imwrite('output/generated' + str(args.imgid) + '.png', (output * 255).astype('uint8'))
+    if args.divide != 1:
+        canvas = canvas[0].detach().cpu().numpy()
+        canvas = np.transpose(canvas, (1, 2, 0))    
+        canvas = cv2.resize(canvas, (width * args.divide, width * args.divide))
+        canvas = large2small(canvas)
+        canvas = np.transpose(canvas, (0, 3, 1, 2))
+        canvas = torch.tensor(canvas).to(device).float()
+        coord = coord.expand(canvas_cnt, 2, 128, 128)
+        T = T.expand(canvas_cnt, 1, 128, 128)
+        for i in range(args.max_step):
+            stepnum = T * i / args.max_step
+            actions = actor(torch.cat([canvas, patch_img, stepnum, coord], 1))
+            canvas, res = decode(actions, canvas)
+            print('divided canvas step {}, L2Loss = {}'.format(i, ((canvas - patch_img) ** 2).mean()))
+            for j in range(5):
+                save_img(res, args.imgid, True)
+                args.imgid += 1
