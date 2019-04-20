@@ -38,12 +38,12 @@ Decoder.load_state_dict(torch.load(args.renderer))
 def decode(x, canvas): # b * (10 + 3)
     x = x.view(-1, 10 + 3)
     stroke = 1 - Decoder(x[:, :10])
-    stroke = stroke.view(-1, 128, 128, 1)
+    stroke = stroke.view(-1, width, width, 1)
     color_stroke = stroke * x[:, -3:].view(-1, 1, 1, 3)
     stroke = stroke.permute(0, 3, 1, 2)
     color_stroke = color_stroke.permute(0, 3, 1, 2)
-    stroke = stroke.view(-1, 5, 1, 128, 128)
-    color_stroke = color_stroke.view(-1, 5, 3, 128, 128)
+    stroke = stroke.view(-1, 5, 1, width, width)
+    color_stroke = color_stroke.view(-1, 5, 3, width, width)
     res = []
     for i in range(5):
         canvas = canvas * (1 - stroke[:, i]) + color_stroke[:, i]
@@ -51,21 +51,21 @@ def decode(x, canvas): # b * (10 + 3)
     return canvas, res
 
 def small2large(x):
-    # (d * d, 128, 128) -> (d * 128, d * 128)    
+    # (d * d, width, width) -> (d * width, d * width)    
     x = x.reshape(args.divide, args.divide, width, width, -1)
     x = np.transpose(x, (0, 2, 1, 3, 4))
     x = x.reshape(args.divide * width, args.divide * width, -1)
     return x
 
 def large2small(x):
-    # (d * 128, d * 128) -> (d * d, 128, 128)
+    # (d * width, d * width) -> (d * d, width, width)
     x = x.reshape(args.divide, width, args.divide, width, 3)
     x = np.transpose(x, (0, 2, 1, 3, 4))
-    x = x.reshape(canvas_cnt, 128, 128, 3)
+    x = x.reshape(canvas_cnt, width, width, 3)
     return x
 
 def save_img(res, imgid, divide=False):
-    output = res[j].detach().cpu().numpy() # d * d, 3, 128, 128    
+    output = res[j].detach().cpu().numpy() # d * d, 3, width, width    
     output = np.transpose(output, (0, 2, 3, 1))
     if divide:
         output = small2large(output)
@@ -111,8 +111,8 @@ with torch.no_grad():
         canvas = large2small(canvas)
         canvas = np.transpose(canvas, (0, 3, 1, 2))
         canvas = torch.tensor(canvas).to(device).float()
-        coord = coord.expand(canvas_cnt, 2, 128, 128)
-        T = T.expand(canvas_cnt, 1, 128, 128)
+        coord = coord.expand(canvas_cnt, 2, width, width)
+        T = T.expand(canvas_cnt, 1, width, width)
         for i in range(args.max_step):
             stepnum = T * i / args.max_step
             actions = actor(torch.cat([canvas, patch_img, stepnum, coord], 1))
