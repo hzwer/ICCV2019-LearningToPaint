@@ -12,9 +12,9 @@ You can easily use [colaboratory](https://colab.research.google.com/github/hzwer
 
 [![paint process](https://img.youtube.com/vi/lvLYltXsDTM/0.jpg)](https://www.youtube.com/watch?v=lvLYltXsDTM)
 
-**Mona Lisa** using different renderers
+**Mona Lisa** using different renderers and spliced lisa 
 
-![Lisa0](./image/lisa.png) ![Lisa0](./image/lisa_0.png) ![Lisa0](./image/lisa_1.png) ![Lisa0](./image/lisa_2.png)
+![Lisa](./image/lisa.png) ![Lisa0](./image/lisa_0.png) ![Lisa1](./image/lisa_1.png) ![Lisa2](./image/lisa_2.png) ![Lisa3](./image/lisa_3.png)
 
 ![Architecture](./image/main.png)
 
