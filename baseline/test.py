@@ -18,6 +18,7 @@ parser.add_argument('--max_step', default=40, type=int, help='max length for epi
 parser.add_argument('--actor', default='./model/Paint-run1/actor.pkl', type=str, help='Actor model')
 parser.add_argument('--renderer', default='./renderer.pkl', type=str, help='renderer model')
 parser.add_argument('--img', default='image/test.png', type=str, help='test image')
+parser.add_argument('--imgid', default=0, type=int, help='test image')
 args = parser.parse_args()
 
 T = torch.ones([1, 1, width, width], dtype=torch.float32).to(device)
@@ -61,7 +62,7 @@ output = canvas[0].detach().cpu().numpy()
 output = np.transpose(output, (1, 2, 0))
 
 os.system('mkdir output')
-cv2.imwrite('output/generated0.png', (output * 255).astype('uint8'))
+cv2.imwrite('output/generated{}.png'.format(args.imgid), (output * 255).astype('uint8'))
 
 with torch.no_grad():
     for i in range(args.max_step):
@@ -72,4 +73,5 @@ with torch.no_grad():
         for j in range(5):
             output = res[j].detach().cpu().numpy()
             output = np.transpose(output, (1, 2, 0))
-            cv2.imwrite('output/generated' + str(i * 5 + j + 1) + '.png', (output * 255).astype('uint8'))
+            args.imgid += 1
+            cv2.imwrite('output/generated' + str(args.imgid) + '.png', (output * 255).astype('uint8'))
