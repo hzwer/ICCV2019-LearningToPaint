@@ -10,11 +10,11 @@ You can easily use [colaboratory](https://colab.research.google.com/github/hzwer
 
 **YouTube demo** (click to play) 
 
-[![paint process](https://img.youtube.com/vi/yAIdx-u_Eoo/0.jpg)](https://www.youtube.com/watch?v=yAIdx-u_Eoo)
+[![paint process](https://img.youtube.com/vi/UqE5cytdrdc/0.jpg)](https://www.youtube.com/watch?v=UqE5cytdrdc)
 
-**Mona Lisa** using different renderers
+**Mona Lisa** using different renderers and spliced lisa 
 
-![Lisa0](./image/lisa.png) ![Lisa0](./image/lisa_0.png) ![Lisa0](./image/lisa_1.png) ![Lisa0](./image/lisa_2.png)
+![Lisa](./image/lisa.png) ![Lisa0](./image/lisa_0.png) ![Lisa1](./image/lisa_1.png) ![Lisa2](./image/lisa_2.png) ![Lisa3](./image/lisa_3.png)
 
 ![Architecture](./image/main.png)
 
@@ -55,8 +55,8 @@ $ tensorboard --logdir train_log --port=6006
 
 ### Test the model
 ```
-$ python3 baseline/test.py --max_step=200 --actor=actor.pkl --renderer=renderer.pkl --img=image/test.png
-$ ffmpeg -r 10 -f image2 -i output/generated%d.png -s 256x256 -vcodec mpeg4 video.mp4
+$ python3 baseline/test.py --max_step=100 --actor=actor.pkl --renderer=renderer.pkl --img=image/test.png --divide=4
+$ ffmpeg -r 30 -f image2 -i output/generated%d.png -s 512x512 -vcodec mpeg4 video.mp4 -q:v 0 -q:a 0
 (make a painting process video)
 ```
 
