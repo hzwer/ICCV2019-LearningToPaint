@@ -10,7 +10,7 @@ You can easily use [colaboratory](https://colab.research.google.com/github/hzwer
 
 **YouTube demo** (click to play) 
 
-[![paint process](https://img.youtube.com/vi/yAIdx-u_Eoo/0.jpg)](https://www.youtube.com/watch?v=yAIdx-u_Eoo)
+[![paint process](https://img.youtube.com/vi/lvLYltXsDTM/0.jpg)](https://www.youtube.com/watch?v=lvLYltXsDTM)
 
 **Mona Lisa** using different renderers
 
@@ -56,7 +56,7 @@ $ tensorboard --logdir train_log --port=6006
 ### Test the model
 ```
 $ python3 baseline/test.py --max_step=100 --actor=actor.pkl --renderer=renderer.pkl --img=image/test.png --divide=4
-$ ffmpeg -r 50 -f image2 -i output/generated%d.png -s 512x512 -vcodec mpeg4 video.mp4
+$ ffmpeg -r 30 -f image2 -i output/generated%d.png -s 512x512 -vcodec mpeg4 video.mp4 -q:v 0 -q:a 0
 (make a painting process video)
 ```
 
