@@ -75,7 +75,7 @@ def save_img(res, imgid, divide=False):
         output = output[0]
     output = (output * 255).astype('uint8')
     output = cv2.resize(output, origin_shape)
-    cv2.imwrite('output/generated' + str(imgid) + '.png', )
+    cv2.imwrite('output/generated' + str(imgid) + '.png', output)
 
 actor = ResNet(9, 18, 65) # action_bundle = 5, 65 = 5 * 13
 actor.load_state_dict(torch.load(args.actor))
