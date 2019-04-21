@@ -65,7 +65,7 @@ def large2small(x):
     return x
 
 def save_img(res, imgid, divide=False):
-    output = res[j].detach().cpu().numpy() # d * d, 3, width, width    
+    output = res.detach().cpu().numpy() # d * d, 3, width, width    
     output = np.transpose(output, (0, 2, 3, 1))
     if divide:
         output = small2large(output)
@@ -102,7 +102,7 @@ with torch.no_grad():
         canvas, res = decode(actions, canvas)
         print('canvas step {}, L2Loss = {}'.format(i, ((canvas - img) ** 2).mean()))
         for j in range(5):
-            save_img(res, args.imgid)
+            save_img(res[j], args.imgid)
             args.imgid += 1
     if args.divide != 1:
         canvas = canvas[0].detach().cpu().numpy()
@@ -119,5 +119,5 @@ with torch.no_grad():
             canvas, res = decode(actions, canvas)
             print('divided canvas step {}, L2Loss = {}'.format(i, ((canvas - patch_img) ** 2).mean()))
             for j in range(5):
-                save_img(res, args.imgid, True)
+                save_img(res[j], args.imgid, True)
                 args.imgid += 1
