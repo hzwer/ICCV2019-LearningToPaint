@@ -24,6 +24,8 @@ args = parser.parse_args()
 
 canvas_cnt = args.divide * args.divide
 T = torch.ones([1, 1, width, width], dtype=torch.float32).to(device)
+img = cv2.imread(args.img, cv2.IMREAD_COLOR)
+origin_shape = img.shape
 
 coord = torch.zeros([1, 2, width, width])
 for i in range(width):
@@ -71,7 +73,9 @@ def save_img(res, imgid, divide=False):
         output = small2large(output)
     else:
         output = output[0]
-    cv2.imwrite('output/generated' + str(imgid) + '.png', (output * 255).astype('uint8'))
+    output = (output * 255).astype('uint8')
+    output = cv2.resize(output, origin_shape)
+    cv2.imwrite('output/generated' + str(imgid) + '.png', )
 
 actor = ResNet(9, 18, 65) # action_bundle = 5, 65 = 5 * 13
 actor.load_state_dict(torch.load(args.actor))
@@ -79,7 +83,6 @@ actor = actor.to(device).eval()
 Decoder = Decoder.to(device).eval()
 
 canvas = torch.zeros([1, 3, width, width]).to(device)
-img = cv2.imread(args.img, cv2.IMREAD_COLOR)
 
 patch_img = cv2.resize(img, (width * args.divide, width * args.divide))
 patch_img = large2small(patch_img)
