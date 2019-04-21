@@ -25,7 +25,7 @@ args = parser.parse_args()
 canvas_cnt = args.divide * args.divide
 T = torch.ones([1, 1, width, width], dtype=torch.float32).to(device)
 img = cv2.imread(args.img, cv2.IMREAD_COLOR)
-origin_shape = img.shape[:-1]
+origin_shape = (img.shape[1], img.shape[0])
 
 coord = torch.zeros([1, 2, width, width])
 for i in range(width):
