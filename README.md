@@ -32,6 +32,11 @@ $ cd LearningToPaint
 * [PyTorch](http://pytorch.org/) 0.4.1 
 * [tensorboardX](https://github.com/lanpa/tensorboard-pytorch/tree/master/tensorboardX)
 * [opencv-python](https://pypi.org/project/opencv-python/) 3.4.0
+```
+pip3 install opencv-python==0.4.1
+pip3 install tensorboardX
+pip3 install opencv-python
+```
 
 ## Testing
 Make sure there are renderer.pkl and actor.pkl before testing.
@@ -39,8 +44,8 @@ Make sure there are renderer.pkl and actor.pkl before testing.
 You can download a trained neural renderer and a CelebA actor for test: [renderer.pkl](https://drive.google.com/open?id=1-7dVdjCIZIxh8hHJnGTK-RA1-jL1tor4) and [actor.pkl](https://drive.google.com/open?id=1a3vpKgjCVXHON4P7wodqhCgCMPgg1KeR)
 
 ```
-$ !wget "https://drive.google.com/uc?export=download&id=1-7dVdjCIZIxh8hHJnGTK-RA1-jL1tor4" -O renderer.pkl
-$ !wget "https://drive.google.com/uc?export=download&id=1a3vpKgjCVXHON4P7wodqhCgCMPgg1KeR" -O actor.pkl
+$ wget "https://drive.google.com/uc?export=download&id=1-7dVdjCIZIxh8hHJnGTK-RA1-jL1tor4" -O renderer.pkl
+$ wget "https://drive.google.com/uc?export=download&id=1a3vpKgjCVXHON4P7wodqhCgCMPgg1KeR" -O actor.pkl
 $ python3 baseline/test.py --max_step=100 --actor=actor.pkl --renderer=renderer.pkl --img=image/test.png --divide=4
 $ ffmpeg -r 30 -f image2 -i output/generated%d.png -s 512x512 -vcodec mpeg4 video.mp4 -q:v 0 -q:a 0
 (make a painting process video)
@@ -96,8 +101,9 @@ If you find this repository useful for your research, please cite the following 
 
 ## Resources
 - A Chinese introduction [Learning to Paint：一个绘画 AI](https://zhuanlan.zhihu.com/p/61761901)
+- A Chinese tutorial [[教程]三分钟学会画一个爱豆](https://zhuanlan.zhihu.com/p/63194822)
+
 
 ## Contributors
-
 - [hzwer](https://github.com/hzwer)
 - [ak9250](https://github.com/ak9250)
