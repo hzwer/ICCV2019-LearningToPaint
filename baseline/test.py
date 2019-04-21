@@ -20,7 +20,6 @@ parser.add_argument('--renderer', default='./renderer.pkl', type=str, help='rend
 parser.add_argument('--img', default='image/test.png', type=str, help='test image')
 parser.add_argument('--imgid', default=0, type=int, help='set begin number for generated image')
 parser.add_argument('--divide', default=4, type=int, help='divide the target image to get better resolution')
-parser.add_argument('--smooth', default=True, type=bool, help='smooth the edge of every patch')
 args = parser.parse_args()
 
 canvas_cnt = args.divide * args.divide
@@ -95,8 +94,7 @@ def save_img(res, imgid, divide=False):
     output = np.transpose(output, (0, 2, 3, 1))
     if divide:
         output = small2large(output)
-        if args.smooth:
-            output = smooth(output)
+        output = smooth(output)
     else:
         output = output[0]
     output = (output * 255).astype('uint8')
