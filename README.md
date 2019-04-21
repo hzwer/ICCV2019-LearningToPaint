@@ -24,6 +24,8 @@ Use [anaconda](https://conda.io/miniconda.html) to manage environment
 ```
 $ conda create -n py36 python=3.6
 $ source activate py36
+$ git clone https://github.com/hzwer/LearningToPaint.git
+$ cd LearningToPaint
 ```
 
 ### Dependencies
