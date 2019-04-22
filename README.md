@@ -8,8 +8,7 @@ We show how to teach machines to paint like human painters, who can use a few st
 
 You can easily use [colaboratory](https://colab.research.google.com/github/hzwer/LearningToPaint/blob/master/LearningToPaint.ipynb) to have a try.
 
-![Demo](https://s2.ax1x.com/2019/04/22/EkQhsf.md.gif)![Demo](https://s2.ax1x.com/2019/04/22/EkQsde.gif)![Demo](https://s2.ax1x.com/2019/04/22/EkQyIH.gif)
-
+![Demo](./demo/lisa.gif)![Demo](./demo/sunrise.gif)![Demo](./demo/sunflower.gif)
 
 [**YouTube demo**](https://www.youtube.com/watch?v=UqE5cytdrdc)
 
