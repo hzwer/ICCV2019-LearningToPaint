@@ -12,6 +12,8 @@ You can easily use [colaboratory](https://colab.research.google.com/github/hzwer
 
 [![paint process](https://img.youtube.com/vi/UqE5cytdrdc/0.jpg)](https://www.youtube.com/watch?v=UqE5cytdrdc)
 
+[bilibili](https://www.bilibili.com/video/av50005448)
+
 **Mona Lisa** using different renderers and spliced lisa 
 
 ![Lisa](./image/lisa.png) ![Lisa0](./image/lisa_0.png) ![Lisa1](./image/lisa_1.png) ![Lisa2](./image/lisa_2.png) ![Lisa3](./image/lisa_3.png)
