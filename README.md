@@ -10,7 +10,7 @@ You can easily use [colaboratory](https://colab.research.google.com/github/hzwer
 
 **YouTube demo** (click to play) 
 
-[![paint process](https://img.youtube.com/vi/UqE5cytdrdc/0.jpg)](https://www.youtube.com/watch?v=UqE5cytdrdc)
+[![paint process](https://pic4.zhimg.com/80/v2-eeb43914cefb60559e2e959be623e23f_hd.jpg)](https://www.youtube.com/watch?v=UqE5cytdrdc)
 
 [bilibili](https://www.bilibili.com/video/av50005448)
 
