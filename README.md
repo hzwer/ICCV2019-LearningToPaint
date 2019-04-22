@@ -8,11 +8,13 @@ We show how to teach machines to paint like human painters, who can use a few st
 
 You can easily use [colaboratory](https://colab.research.google.com/github/hzwer/LearningToPaint/blob/master/LearningToPaint.ipynb) to have a try.
 
-**YouTube demo** (click to play) 
+![Demo](https://wx3.sinaimg.cn/mw690/866d6ca6ly1g2b9y6y0a1g20ao0ao4qu.gif)![Demo](https://wx1.sinaimg.cn/mw690/866d6ca6ly1g2b9yt93t8g20ao0aoqva.gif)
+![Demo](https://wx4.sinaimg.cn/mw690/866d6ca6ly1g2ba1y6a4ug20ao0aou12.gif)
 
-[![paint process](https://pic4.zhimg.com/80/v2-eeb43914cefb60559e2e959be623e23f_hd.jpg)](https://www.youtube.com/watch?v=UqE5cytdrdc)
 
-[bilibili](https://www.bilibili.com/video/av50005448)
+[**YouTube demo**](https://www.youtube.com/watch?v=UqE5cytdrdc)
+
+[**bilibili demo**](https://www.bilibili.com/video/av50005448)
 
 **Mona Lisa** using different renderers and spliced lisa 
 
