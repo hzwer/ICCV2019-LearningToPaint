@@ -10,7 +10,7 @@ You can easily use [colaboratory](https://colab.research.google.com/github/hzwer
 
 ![Demo](./demo/lisa.gif)![Demo](./demo/sunrise.gif)![Demo](./demo/sunflower.gif)
 
-[**YouTube demo**](https://www.youtube.com/watch?v=UqE5cytdrdc)
+[**YouTube demo**](https://youtu.be/YmOgKZ5oipk)
 
 [**bilibili demo**](https://www.bilibili.com/video/av50005448)
 
