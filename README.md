@@ -1,6 +1,6 @@
 # Learning to Paint
 
-## [Arxiv Paper](https://arxiv.org/abs/1903.04411) | [YouTube](https://youtu.be/YmOgKZ5oipk) | [Reddit](https://www.reddit.com/r/reinforcementlearning/comments/b5lpfl/learning_to_paint_with_modelbased_deep/)
+## [Arxiv](https://arxiv.org/abs/1903.04411) | [YouTube](https://youtu.be/YmOgKZ5oipk) | [Reddit](https://www.reddit.com/r/reinforcementlearning/comments/b5lpfl/learning_to_paint_with_modelbased_deep/)
 
 ## Abstract
 
@@ -98,6 +98,7 @@ Our research is to explore how to make machines learn to use painting tools. Our
 ## Contributors
 - [hzwer](https://github.com/hzwer)
 - [ak9250](https://github.com/ak9250)
+
 Also many thanks to [ctmakro](https://github.com/ctmakro/rl-painter) for inspiring this work.
 
 If you find this repository useful for your research, please cite the following paper:
