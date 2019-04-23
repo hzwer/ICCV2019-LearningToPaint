@@ -83,11 +83,6 @@ $ tensorboard --logdir train_log --port=6006
 <div>
 <img src="./image/step.png" width="600">
 </div>
-
-**Mona Lisa** using different renderers
-
-![Lisa](./image/lisa.png) ![Lisa0](./image/lisa_0.png) ![Lisa1](./image/lisa_1.png) ![Lisa2](./image/lisa_2.png)
-
 ## FAQ
 **Why does your demo look better than the results in the paper?**
 
