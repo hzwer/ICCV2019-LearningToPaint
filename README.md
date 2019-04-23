@@ -109,3 +109,5 @@ If you find this repository useful for your research, please cite the following 
   year={2019}
 }
 ```
+
+Also many thanks to https://github.com/ctmakro/rl-painter for inspiring this work.
