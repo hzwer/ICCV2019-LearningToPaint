@@ -83,6 +83,7 @@ $ tensorboard --logdir train_log --port=6006
 <div>
 <img src="./image/step.png" width="600">
 </div>
+
 ## FAQ
 **Why does your demo look better than the results in the paper?**
 
@@ -90,7 +91,7 @@ In our demo, after painting the outline of each image, we divide it into 4 × 4 
 
 **Your main difference from [Geometrize](https://www.samcodes.co.uk/project/geometrize-haxe-web/)？**
 
-Our research is to explore how to make machines learn to use painting tools. Our implementation is a combination of reinforcement learning and computer vision. If you are interested, welcome to see our paper.
+Our research is to explore how to make machines learn to use painting tools. Our implementation is a combination of reinforcement learning and computer vision. Please read our paper for more details.
 
 ## Resources
 - A Chinese introduction [Learning to Paint：一个绘画 AI](https://zhuanlan.zhihu.com/p/61761901)
