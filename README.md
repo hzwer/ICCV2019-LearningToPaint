@@ -91,7 +91,7 @@ $ tensorboard --logdir train_log --port=6006
 ## FAQ
 **Why does your demo look better than the results in the paper?**
 
-In our demo, after drawing the outline of each image, we divide it into 4 × 4 patches to paint parallelly to get high resolution.
+In our demo, after painting the outline of each image, we divide it into 4 × 4 patches to paint parallelly to get a high resolution.
 
 **Your main difference from [Geometrize](https://www.samcodes.co.uk/project/geometrize-haxe-web/)？**
 
