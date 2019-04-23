@@ -1,6 +1,6 @@
 # Learning to Paint
 
----> https://arxiv.org/abs/1903.04411
+## [Arxiv Paper](https://arxiv.org/abs/1903.04411) | [YouTube](https://youtu.be/YmOgKZ5oipk) | [Reddit](https://www.reddit.com/r/reinforcementlearning/comments/b5lpfl/learning_to_paint_with_modelbased_deep/)
 
 ## Abstract
 
@@ -10,8 +10,6 @@ You can easily use [colaboratory](https://colab.research.google.com/github/hzwer
 
 ![Demo](./demo/lisa.gif)![Demo](./demo/sunrise.gif)![Demo](./demo/sunflower.gif)
 ![Demo](./demo/palacemuseum.gif)![Demo](./demo/deepdream_night.gif)![Demo](./demo/deepdream_bird.gif)
-
-[**YouTube**](https://youtu.be/YmOgKZ5oipk) [**bilibili**](https://www.bilibili.com/video/av50005448)
 
 ![Architecture](./image/main.png)
 
