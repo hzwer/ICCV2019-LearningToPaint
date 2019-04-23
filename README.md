@@ -9,14 +9,9 @@ We show how to teach machines to paint like human painters, who can use a few st
 You can easily use [colaboratory](https://colab.research.google.com/github/hzwer/LearningToPaint/blob/master/LearningToPaint.ipynb) to have a try.
 
 ![Demo](./demo/lisa.gif)![Demo](./demo/sunrise.gif)![Demo](./demo/sunflower.gif)
+![Demo](./demo/palacemuseum.gif)![Demo](./demo/deepdream_night.gif)![Demo](./demo/deepdream_bird.gif)
 
-[**YouTube demo**](https://youtu.be/YmOgKZ5oipk)
-
-[**bilibili demo**](https://www.bilibili.com/video/av50005448)
-
-**Mona Lisa** using different renderers
-
-![Lisa](./image/lisa.png) ![Lisa0](./image/lisa_0.png) ![Lisa1](./image/lisa_1.png) ![Lisa2](./image/lisa_2.png) ![Lisa3](./image/lisa_3.png)
+[**YouTube**](https://youtu.be/YmOgKZ5oipk) [**bilibili**](https://www.bilibili.com/video/av50005448)
 
 ![Architecture](./image/main.png)
 
@@ -83,12 +78,15 @@ $ python3 baseline/train.py --max_step=200 --debug --batch_size=96
 $ tensorboard --logdir train_log --port=6006
 ```
 ## Results
+**Painting process in different datasets**
 
 <div align=center>
 <img src="./image/step.png" width="500">
 </div>
 
-![Results](./image/results.png)
+**Mona Lisa** using different renderers
+
+![Lisa](./image/lisa.png) ![Lisa0](./image/lisa_0.png) ![Lisa1](./image/lisa_1.png) ![Lisa2](./image/lisa_2.png)
 
 If you find this repository useful for your research, please cite the following paper:
 
