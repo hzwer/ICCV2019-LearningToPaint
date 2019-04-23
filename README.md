@@ -80,16 +80,32 @@ $ tensorboard --logdir train_log --port=6006
 ## Results
 **Painting process in different datasets**
 
-<div align=center>
-<img src="./image/step.png" width="500">
+<div>
+<img src="./image/step.png" width="600">
 </div>
 
 **Mona Lisa** using different renderers
 
 ![Lisa](./image/lisa.png) ![Lisa0](./image/lisa_0.png) ![Lisa1](./image/lisa_1.png) ![Lisa2](./image/lisa_2.png)
 
-If you find this repository useful for your research, please cite the following paper:
+## FAQ
+**Why does your demo look better than the results in the paper?**
 
+In our demo, after drawing the outline of each image, we divide it into 4 × 4 patches to paint parallelly to get high resolution.
+
+**Your main difference from [Geometrize](https://www.samcodes.co.uk/project/geometrize-haxe-web/)？**
+
+Our research is to explore how to make machines learn to use painting tools. Our implementation is a combination of reinforcement learning and computer vision. If you are interested, welcome to see our paper.
+
+## Resources
+- A Chinese introduction [Learning to Paint：一个绘画 AI](https://zhuanlan.zhihu.com/p/61761901)
+- A Chinese tutorial [[教程]三分钟学会画一个爱豆](https://zhuanlan.zhihu.com/p/63194822)
+
+## Contributors
+- [hzwer](https://github.com/hzwer)
+- [ak9250](https://github.com/ak9250)
+
+If you find this repository useful for your research, please cite the following paper:
 ```
 @article{huang2019learning,
   title={Learning to Paint with Model-based Deep Reinforcement Learning},
@@ -98,12 +114,3 @@ If you find this repository useful for your research, please cite the following 
   year={2019}
 }
 ```
-
-## Resources
-- A Chinese introduction [Learning to Paint：一个绘画 AI](https://zhuanlan.zhihu.com/p/61761901)
-- A Chinese tutorial [[教程]三分钟学会画一个爱豆](https://zhuanlan.zhihu.com/p/63194822)
-
-
-## Contributors
-- [hzwer](https://github.com/hzwer)
-- [ak9250](https://github.com/ak9250)
