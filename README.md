@@ -1,17 +1,15 @@
-# Learning to Paint with Model-based Deep Reinforcement Learning
+# Learning to Paint
 
----> https://arxiv.org/abs/1903.04411
+## [Arxiv](https://arxiv.org/abs/1903.04411) | [YouTube](https://youtu.be/YmOgKZ5oipk) | [Reddit](https://www.reddit.com/r/reinforcementlearning/comments/b5lpfl/learning_to_paint_with_modelbased_deep/)
 
 ## Abstract
 
 We show how to teach machines to paint like human painters, who can use a few strokes to create fantastic paintings. By combining the neural renderer and model-based Deep Reinforcement Learning (DRL), our agent can decompose texture-rich images into strokes and make long-term plans. For each stroke, the agent directly determines the position and color of the stroke. Excellent visual effect can be achieved using hundreds of strokes. The training process does not require experience of human painting or stroke tracking data. 
 
-You can easily use [colaboratory](https://colab.research.google.com/github/hzwer/LearningToPaint/blob/master/LearningToPaint.ipynb) to have a try.
+**You can easily use [colaboratory](https://colab.research.google.com/github/hzwer/LearningToPaint/blob/master/LearningToPaint.ipynb) to have a try.**
 
 ![Demo](./demo/lisa.gif)![Demo](./demo/sunrise.gif)![Demo](./demo/sunflower.gif)
 ![Demo](./demo/palacemuseum.gif)![Demo](./demo/deepdream_night.gif)![Demo](./demo/deepdream_bird.gif)
-
-[**YouTube**](https://youtu.be/YmOgKZ5oipk) [**bilibili**](https://www.bilibili.com/video/av50005448)
 
 ![Architecture](./image/main.png)
 
@@ -85,11 +83,11 @@ $ tensorboard --logdir train_log --port=6006
 </div>
 
 ## FAQ
-**Why does your demo look better than the results in the paper?**
+**Why does your demo look better than the result in your paper?**
 
-In our demo, after painting the outline of each image, we divide it into 4 × 4 patches to paint parallelly to get a high resolution.
+In our demo, after painting the outline of each image, we divide it into small patches to paint parallelly to get a high resolution.
 
-**Your main difference from [Geometrize](https://www.samcodes.co.uk/project/geometrize-haxe-web/)？**
+**Your main difference from [primitive](https://github.com/fogleman/primitive)？**
 
 Our research is to explore how to make machines learn to use painting tools. Our implementation is a combination of reinforcement learning and computer vision. Please read our paper for more details.
 
@@ -101,6 +99,8 @@ Our research is to explore how to make machines learn to use painting tools. Our
 - [hzwer](https://github.com/hzwer)
 - [ak9250](https://github.com/ak9250)
 
+Also many thanks to [ctmakro](https://github.com/ctmakro/rl-painter) for inspiring this work.
+
 If you find this repository useful for your research, please cite the following paper:
 ```
 @article{huang2019learning,
@@ -110,5 +110,3 @@ If you find this repository useful for your research, please cite the following 
   year={2019}
 }
 ```
-
-Also many thanks to https://github.com/ctmakro/rl-painter for inspiring this work.
