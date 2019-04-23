@@ -1,4 +1,4 @@
-# Learning to Paint with Model-based Deep Reinforcement Learning
+# Learning to Paint
 
 ---> https://arxiv.org/abs/1903.04411
 
