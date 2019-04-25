@@ -83,11 +83,11 @@ $ tensorboard --logdir train_log --port=6006
 </div>
 
 ## FAQ
-**Why does your demo look better than the results in the paper?**
+**Why does your demo look better than the result in your paper?**
 
-In our demo, after painting the outline of each image, we divide it into 4 × 4 patches to paint parallelly to get a high resolution.
+In our demo, after painting the outline of each image, we divide it into small patches to paint parallelly to get a high resolution.
 
-**Your main difference from [Geometrize](https://www.samcodes.co.uk/project/geometrize-haxe-web/)？**
+**Your main difference from [primitive](https://github.com/fogleman/primitive)？**
 
 Our research is to explore how to make machines learn to use painting tools. Our implementation is a combination of reinforcement learning and computer vision. Please read our paper for more details.
 
