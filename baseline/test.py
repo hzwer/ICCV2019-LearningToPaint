@@ -77,8 +77,6 @@ def smooth(img):
         for q in range(args.divide):
             x = p * width
             y = q * width
-#            if p == args.divide - 1 and q == args.divide - 1:
-#                continue
             for k in range(width):
                 img = smooth_pix(img, x + k, y + width - 1)
                 if q != args.divide - 1:
