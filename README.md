@@ -28,7 +28,7 @@ $ cd LearningToPaint
 * [tensorboardX](https://github.com/lanpa/tensorboard-pytorch/tree/master/tensorboardX)
 * [opencv-python](https://pypi.org/project/opencv-python/) 3.4.0
 ```
-pip3 install opencv-python==0.4.1
+pip3 install torch==0.4.1
 pip3 install tensorboardX
 pip3 install opencv-python
 ```
