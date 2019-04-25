@@ -130,7 +130,8 @@ with torch.no_grad():
         print('canvas step {}, L2Loss = {}'.format(i, ((canvas - img) ** 2).mean()))
         for j in range(5):
             save_img(res[j], args.imgid)
-        args.imgid += 1
+        if i % 4 == 0:
+            args.imgid += 1
     if args.divide != 1:
         canvas = canvas[0].detach().cpu().numpy()
         canvas = np.transpose(canvas, (1, 2, 0))    
@@ -147,4 +148,4 @@ with torch.no_grad():
             print('divided canvas step {}, L2Loss = {}'.format(i, ((canvas - patch_img) ** 2).mean()))
             for j in range(5):
                 save_img(res[j], args.imgid, True)
-                args.imgid += 1
+            args.imgid += 1
