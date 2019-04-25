@@ -77,8 +77,6 @@ def smooth(img):
         for q in range(args.divide):
             x = p * width
             y = q * width
-#            if p == args.divide - 1 and q == args.divide - 1:
-#                continue
             for k in range(width):
                 img = smooth_pix(img, x + k, y + width - 1)
                 if q != args.divide - 1:
@@ -130,8 +128,7 @@ with torch.no_grad():
         print('canvas step {}, L2Loss = {}'.format(i, ((canvas - img) ** 2).mean()))
         for j in range(5):
             save_img(res[j], args.imgid)
-        if i % 4 == 0:
-            args.imgid += 1
+        args.imgid += 1
     if args.divide != 1:
         canvas = canvas[0].detach().cpu().numpy()
         canvas = np.transpose(canvas, (1, 2, 0))    
