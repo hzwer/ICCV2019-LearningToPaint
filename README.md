@@ -52,7 +52,7 @@ We also provide with some other neural renderers and agents, you can use them in
 
 [round.pkl](https://drive.google.com/open?id=1kI4yXQ7IrNTfjFs2VL7IBBL_JJwkW6rl) --- [actor_round.pkl](https://drive.google.com/open?id=1ewDErUhPeGsEcH8E5a2QAcUBECeaUTZe);
 
-[bezierwotrans.pkl](https://drive.google.com/open?id=1XUdti00mPRh1-1iU66Uqg4qyMKk4OL19)
+[bezierwotrans.pkl](https://drive.google.com/open?id=1XUdti00mPRh1-1iU66Uqg4qyMKk4OL19) --- [actor_notrans.pkl](https://drive.google.com/open?id=1VBtesw2rHmYu2AeJ22XvTCuzuqkY8hZh)
 
 ## Training
 
@@ -71,7 +71,7 @@ $ tensorboard --logdir train_log --port=6006
 ### Paint Agent
 After the neural renderer looks good enough, we can begin training the agent.
 ```
-$ python3 baseline/train.py --max_step=200 --debug --batch_size=96
+$ python3 baseline/train.py --max_step=40 --debug --batch_size=96
 (A step contains 5 strokes in default.)
 $ tensorboard --logdir train_log --port=6006
 ```
