@@ -11,12 +11,6 @@ import sys
 def conv3x3(in_planes, out_planes, stride=1):
     return (nn.Conv2d(in_planes, out_planes, kernel_size=3, stride=stride, padding=1, bias=False))
 
-def conv_init(m):
-    classname = m.__class__.__name__
-    if classname.find('Conv') != -1:
-        init.xavier_uniform(m.weight, gain=np.sqrt(2))
-        init.constant(m.bias, 0)
-
 def cfg(depth):
     depth_lst = [18, 34, 50, 101, 152]
     assert (depth in depth_lst), "Error : Resnet depth should be either 18, 34, 50, 101, 152"
