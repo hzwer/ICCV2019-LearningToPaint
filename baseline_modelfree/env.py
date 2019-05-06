@@ -48,7 +48,6 @@ class Paint:
                     img_test.append(img)
             finally:
                 if (i + 1) % 10000 == 0:
-                    break
                     print('loaded {} images'.format(i + 1))
         print('finish loading data, {} training images, {} testing images'.format(str(train_num), str(test_num)))
         
