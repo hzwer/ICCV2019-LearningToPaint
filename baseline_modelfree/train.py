@@ -85,7 +85,7 @@ if __name__ == "__main__":
     parser.add_argument('--env_batch', default=96, type=int, help='concurrent environment number')
     parser.add_argument('--tau', default=0.001, type=float, help='moving average for target network')
     parser.add_argument('--max_step', default=40, type=int, help='max length for episode')
-    parser.add_argument('--noise_factor', default=0, type=float, help='noise level for parameter space noise')
+    parser.add_argument('--noise_factor', default=0.01, type=float, help='noise level for parameter space noise')
     parser.add_argument('--validate_interval', default=50, type=int, help='how many episodes to perform a validation')
     parser.add_argument('--validate_episodes', default=5, type=int, help='how many episode to perform during validation')
     parser.add_argument('--train_times', default=2000000, type=int, help='total traintimes')

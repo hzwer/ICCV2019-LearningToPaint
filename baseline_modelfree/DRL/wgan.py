@@ -56,7 +56,7 @@ netD = netD.to(device)
 target_netD = target_netD.to(device)
 hard_update(target_netD, netD)
 
-optimizerD = Adam(netD.parameters(), lr=1e-4, betas=(0.5, 0.999))
+optimizerD = Adam(netD.parameters(), lr=3e-4, betas=(0.5, 0.999))
 def cal_gradient_penalty(netD, real_data, fake_data, batch_size):
     alpha = torch.rand(batch_size, 1)
     alpha = alpha.expand(batch_size, int(real_data.nelement()/batch_size)).contiguous()
