@@ -71,7 +71,8 @@ $ tensorboard --logdir train_log --port=6006
 ### Paint Agent
 After the neural renderer looks good enough, we can begin training the agent.
 ```
-$ python3 baseline/train.py --max_step=40 --debug --batch_size=96
+$ cd baseline
+$ python3 train.py --max_step=40 --debug --batch_size=96
 (A step contains 5 strokes in default.)
 $ tensorboard --logdir train_log --port=6006
 ```
