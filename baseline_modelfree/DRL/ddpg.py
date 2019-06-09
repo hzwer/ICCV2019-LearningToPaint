@@ -75,7 +75,6 @@ class DDPG(object):
         
         self.state = [None] * self.env_batch # Most recent state
         self.action = [None] * self.env_batch # Most recent action
-        self.cuda = torch.cuda.is_available()
         self.choose_device()        
 
     def play(self, state, target=False):
