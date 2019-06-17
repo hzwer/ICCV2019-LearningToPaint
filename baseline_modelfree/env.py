@@ -38,7 +38,7 @@ class Paint:
         for i in range(200000):            
             img_id = '%06d' % (i + 1)
             try:
-                img = cv2.imread('./data/img_align_celeba/' + img_id + '.jpg', cv2.IMREAD_UNCHANGED)
+                img = cv2.imread('../data/img_align_celeba/' + img_id + '.jpg', cv2.IMREAD_UNCHANGED)
                 img = cv2.resize(img, (width, width))
                 if i > 2000:                
                     train_num += 1

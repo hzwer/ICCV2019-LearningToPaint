@@ -17,7 +17,7 @@ class TensorBoard(object):
         elif type(img) == PIL.Image.Image:
             pass
         else:
-            img = scipy.misc.toimage(img)
+            img = PIL.Image.fromarray(img)
 
         img.save(bio, format="png")
         image_summary = Summary.Image(encoded_image_string=bio.getvalue())
