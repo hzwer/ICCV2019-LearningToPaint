@@ -4,7 +4,14 @@
 
 ## Abstract
 
-We show how to teach machines to paint like human painters, who can use a few strokes to create fantastic paintings. By combining the neural renderer and model-based Deep Reinforcement Learning (DRL), our agent can decompose texture-rich images into strokes and make long-term plans. For each stroke, the agent directly determines the position and color of the stroke. Excellent visual effect can be achieved using hundreds of strokes. The training process does not require experience of human painting or stroke tracking data. 
+We show how to teach machines to paint like human painters, who can use a
+small number of strokes to create fantastic paintings. By employing a neural
+renderer in model-based Deep Reinforcement Learning (DRL), our agents learn to
+determine the position and color of each stroke and make long-term plans to
+decompose texture-rich images into strokes. Experiments demonstrate that
+excellent visual effects can be achieved using hundreds of strokes. The
+training process does not require the experience of human painters or stroke
+tracking data. 
 
 **You can easily use [colaboratory](https://colab.research.google.com/github/hzwer/LearningToPaint/blob/master/LearningToPaint.ipynb) to have a try.**
 
