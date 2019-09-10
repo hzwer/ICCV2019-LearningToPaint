@@ -101,9 +101,12 @@ In our demo, after painting the outline of each image, we divide it into small p
 Our research is to explore how to make machines learn to use painting tools. Our implementation is a combination of reinforcement learning and computer vision. Please read our paper for more details.
 
 ## Resources
-- Chinese introductions 
+- Chinese introductions
+
 [Learning to Paint：一个绘画 AI](https://zhuanlan.zhihu.com/p/61761901)
+
 [旷视研究院推出基于深度强化学习的绘画智能体](https://zhuanlan.zhihu.com/p/80732065)
+
 [论文笔记8--基于强化学习模型的机器自动绘画](https://zhuanlan.zhihu.com/p/78924972)
 
 ## Contributors
