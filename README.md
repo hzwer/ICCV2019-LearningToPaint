@@ -113,7 +113,7 @@ Our research is to explore how to make machines learn to use painting tools. Our
 - [hzwer](https://github.com/hzwer)
 - [ak9250](https://github.com/ak9250)
 
-Also many thanks to [ctmakro](https://github.com/ctmakro/rl-painter) for inspiring this work.
+Also many thanks to [ctmakro](https://github.com/ctmakro/rl-painter) for inspiring this work. He also explored using greedy algorithm to generate paintings - [opencv_playground](https://github.com/ctmakro/opencv_playground).
 
 If you find this repository useful for your research, please cite the following paper:
 ```
