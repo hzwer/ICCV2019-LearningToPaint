@@ -88,7 +88,7 @@ $ tensorboard --logdir train_log --port=6006
 **Painting process in different datasets**
 
 <div>
-<img src="./image/step.png" width="600">
+<img src="./image/step.png" width="400">
 </div>
 
 ## FAQ
@@ -103,11 +103,17 @@ Our research is to explore how to make machines learn to use painting tools. Our
 ## Resources
 - Chinese introductions
 
+[大三少年造出AI写意画家，像人类一样挥笔作画](https://zhuanlan.zhihu.com/p/64097633)
+
 [Learning to Paint：一个绘画 AI](https://zhuanlan.zhihu.com/p/61761901)
 
 [旷视研究院推出基于深度强化学习的绘画智能体](https://zhuanlan.zhihu.com/p/80732065)
 
-[论文笔记8--基于强化学习模型的机器自动绘画](https://zhuanlan.zhihu.com/p/78924972)
+* Our ICCV poster
+
+  <div>
+  <img src="./image/poster.png" width="800">
+  </div>
 
 ## Contributors
 - [hzwer](https://github.com/hzwer)
