@@ -1,6 +1,6 @@
 # Learning to Paint
 
-## [Arxiv(ICCV2019 Poster)](https://arxiv.org/abs/1903.04411) | [YouTube](https://youtu.be/YmOgKZ5oipk) | [Reddit](https://www.reddit.com/r/reinforcementlearning/comments/b5lpfl/learning_to_paint_with_modelbased_deep/)
+## [Arxiv(ICCV2019)](https://arxiv.org/abs/1903.04411) | [YouTube](https://youtu.be/YmOgKZ5oipk) | [Reddit](https://www.reddit.com/r/reinforcementlearning/comments/b5lpfl/learning_to_paint_with_modelbased_deep/)
 
 ## Abstract
 
@@ -18,7 +18,11 @@ tracking data.
 ![Demo](./demo/lisa.gif)![Demo](./demo/sunrise.gif)![Demo](./demo/sunflower.gif)
 ![Demo](./demo/palacemuseum.gif)![Demo](./demo/deepdream_night.gif)![Demo](./demo/deepdream_bird.gif)
 
-![Architecture](./image/main.png)
+* Our ICCV poster
+  <div>
+  <img src="./image/poster.png" width="800">
+  </div>
+
 
 ## Installation
 Use [anaconda](https://conda.io/miniconda.html) to manage environment
@@ -84,12 +88,6 @@ $ python3 train.py --max_step=40 --debug --batch_size=96
 (A step contains 5 strokes in default.)
 $ tensorboard --logdir train_log --port=6006
 ```
-## Results
-**Painting process in different datasets**
-
-<div>
-<img src="./image/step.png" width="400">
-</div>
 
 ## FAQ
 **Why does your demo look better than the result in your paper?**
@@ -108,12 +106,6 @@ Our research is to explore how to make machines learn to use painting tools. Our
 [Learning to Paint：一个绘画 AI](https://zhuanlan.zhihu.com/p/61761901)
 
 [旷视研究院推出基于深度强化学习的绘画智能体](https://zhuanlan.zhihu.com/p/80732065)
-
-* Our ICCV poster
-
-  <div>
-  <img src="./image/poster.png" width="800">
-  </div>
 
 ## Contributors
 - [hzwer](https://github.com/hzwer)
