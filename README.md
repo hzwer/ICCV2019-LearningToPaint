@@ -1,6 +1,6 @@
 # ICCV2019-Learning to Paint
 
-## [Arxiv](https://arxiv.org/abs/1903.04411) | [YouTube](https://youtu.be/YmOgKZ5oipk) | [Reddit](https://www.reddit.com/r/reinforcementlearning/comments/b5lpfl/learning_to_paint_with_modelbased_deep/)
+## [Arxiv](https://arxiv.org/abs/1903.04411) | [YouTube](https://youtu.be/YmOgKZ5oipk)
 
 ## Abstract
 
@@ -11,18 +11,12 @@ determine the position and color of each stroke and make long-term plans to
 decompose texture-rich images into strokes. Experiments demonstrate that
 excellent visual effects can be achieved using hundreds of strokes. The
 training process does not require the experience of human painters or stroke
-tracking data. 
+tracking data.
 
 **You can easily use [colaboratory](https://colab.research.google.com/github/hzwer/LearningToPaint/blob/master/LearningToPaint.ipynb) to have a try.**
 
 ![Demo](./demo/lisa.gif)![Demo](./demo/sunrise.gif)![Demo](./demo/sunflower.gif)
 ![Demo](./demo/palacemuseum.gif)![Demo](./demo/deepdream_night.gif)![Demo](./demo/deepdream_bird.gif)
-
-* Our ICCV poster
-  <div>
-  <img src="./image/poster.png" width="800">
-  </div>
-
 
 ## Installation
 Use [anaconda](https://conda.io/miniconda.html) to manage environment
@@ -87,38 +81,4 @@ $ cd baseline
 $ python3 train.py --max_step=40 --debug --batch_size=96
 (A step contains 5 strokes in default.)
 $ tensorboard --logdir train_log --port=6006
-```
-
-## FAQ
-**Why does your demo look better than the result in your paper?**
-
-In our demo, after painting the outline of each image, we divide it into small patches to paint parallelly to get a high resolution.
-
-**Your main difference from [primitive](https://github.com/fogleman/primitive)？**
-
-Our research is to explore how to make machines learn to use painting tools. Our implementation is a combination of reinforcement learning and computer vision. Please read our paper for more details.
-
-## Resources
-- Chinese introductions
-
-[大三少年造出AI写意画家，像人类一样挥笔作画](https://zhuanlan.zhihu.com/p/64097633)
-
-[Learning to Paint：一个绘画 AI](https://zhuanlan.zhihu.com/p/61761901)
-
-[旷视研究院推出基于深度强化学习的绘画智能体](https://zhuanlan.zhihu.com/p/80732065)
-
-## Contributors
-- [hzwer](https://github.com/hzwer)
-- [ak9250](https://github.com/ak9250)
-
-Also many thanks to [ctmakro](https://github.com/ctmakro/rl-painter) for inspiring this work. He also explored using greedy algorithm to generate paintings - [opencv_playground](https://github.com/ctmakro/opencv_playground).
-
-If you find this repository useful for your research, please cite the following paper:
-```
-@article{huang2019learning,
-  title={Learning to Paint with Model-based Deep Reinforcement Learning},
-  author={Huang, Zhewei and Heng, Wen and Zhou, Shuchang},
-  journal={arXiv preprint arXiv:1903.04411},
-  year={2019}
-}
 ```
