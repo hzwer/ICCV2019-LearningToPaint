@@ -17,7 +17,6 @@ aug = transforms.Compose(
              ])
 
 width = 128
-convas_area = width * width
 
 img_train = []
 img_test = []
@@ -25,12 +24,26 @@ train_num = 0
 test_num = 0
 
 class Paint:
-    def __init__(self, batch_size, max_step):
+    def __init__(self, batch_size, max_step, canvas_width=128, renderer='neural'):
         self.batch_size = batch_size
         self.max_step = max_step
-        self.action_space = (13)
+
+        if renderer is 'neural':
+            self.action_space = (13)
+        elif renderer is 'libmypaint':
+            self.action_space = (1)
+        elif renderer is 'fluid':
+            self.action_space = (1)
+        else:
+            raise Exception('Unsupported renderer')
+
+        global width
+        width = canvas_width
+
+        self.renderer = renderer
         self.observation_space = (self.batch_size, width, width, 7)
         self.test = False
+
         
     def load_data(self):
         # CelebA
@@ -90,7 +103,7 @@ class Paint:
         return (s.transpose(0, 3) * t).transpose(0, 3)
     
     def step(self, action):
-        self.canvas = (decode(action, self.canvas.float() / 255) * 255).byte()
+        self.canvas = (decode(action, self.canvas.float() / 255, self.renderer) * 255).byte()
         self.stepnum += 1
         ob = self.observation()
         done = (self.stepnum == self.max_step)

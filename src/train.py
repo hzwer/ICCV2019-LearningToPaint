@@ -8,12 +8,24 @@ from utils.util import *
 from utils.tensorboard import TensorBoard
 import time
 
-exp = os.path.abspath('.').split('/')[-1]
-writer = TensorBoard('../train_log/{}'.format(exp))
-os.system('ln -sf ../train_log/{} ./log'.format(exp))
-os.system('mkdir ./model')
+import platform
+
+if platform.system() is 'Linux' or platform.system() is 'Darwin':
+    delimiter = '/'
+    exp = os.path.abspath('.').split('/')[-1]
+    writer = TensorBoard('../train_log/{}'.format(exp))
+    os.system('ln -sf ../train_log/{} ./log'.format(exp))
+    os.system('mkdir ./model')
+else: 
+    delimiter = '\\'
+    exp = os.path.abspath('.').split(delimiter)[-1]
+    writer = TensorBoard('../train_log/{}'.format(exp))
+    os.system('mkdir .\\model')
+
+
 
 def train(agent, env, evaluate):
+    print_once = False
     train_times = args.train_times
     env_batch = args.env_batch
     validate_interval = args.validate_interval
@@ -40,6 +52,9 @@ def train(agent, env, evaluate):
         if (episode_steps >= max_step and max_step):
             if step > args.warmup:
                 # [optional] evaluate
+                if not print_once:
+                    print('Finished warm-up')
+                    print_once = True
                 if episode > 0 and validate_interval > 0 and episode % validate_interval == 0:
                     reward, dist = evaluate(env, agent.select_action, debug=debug)
                     if debug: prRed('Step_{:07d}: mean_reward:{:.3f} mean_dist:{:.3f} var_dist:{:.3f}'.format(step - 1, np.mean(reward), np.mean(dist), np.var(dist)))
@@ -94,6 +109,8 @@ if __name__ == "__main__":
     parser.add_argument('--output', default='./model', type=str, help='Resuming model path for testing')
     parser.add_argument('--debug', dest='debug', action='store_true', help='print some info')
     parser.add_argument('--seed', default=1234, type=int, help='random seed')
+    parser.add_argument('--canvas_width', default=128, type=int, help='width of the canvas')
+    parser.add_argument('--renderer', default='neural', type=str, help='The rendering environment')
     
     args = parser.parse_args()    
     args.output = get_output_folder(args.output, "Paint")
@@ -105,10 +122,10 @@ if __name__ == "__main__":
     torch.backends.cudnn.benchmark = True
     from DRL.ddpg import DDPG
     from DRL.multi import fastenv
-    fenv = fastenv(args.max_step, args.env_batch, writer)
+    fenv = fastenv(args.max_step, args.env_batch, writer, args.canvas_width, args.renderer)
     agent = DDPG(args.batch_size, args.env_batch, args.max_step, \
                  args.tau, args.discount, args.rmsize, \
-                 writer, args.resume, args.output)
+                 writer, args.resume, args.output, args.canvas_width, args.renderer)
     evaluate = Evaluator(args, writer)
     print('observation_space', fenv.observation_space, 'action_space', fenv.action_space)
     train(agent, fenv, evaluate)

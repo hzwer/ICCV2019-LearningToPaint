@@ -5,3 +5,6 @@ data/
 *.pkl
 
 output/*
+train_log/*
+
+.vscode/settings.json

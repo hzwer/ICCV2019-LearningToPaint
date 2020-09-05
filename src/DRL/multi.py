@@ -3,16 +3,15 @@ import torch
 import numpy as np
 from env import Paint
 from utils.util import *
-from DRL.ddpg import decode
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 class fastenv():
     def __init__(self, 
                  max_episode_length=10, env_batch=64, \
-                 writer=None):
+                 writer=None, canvas_width=128, renderer='neural'):
         self.max_episode_length = max_episode_length
         self.env_batch = env_batch
-        self.env = Paint(self.env_batch, self.max_episode_length)
+        self.env = Paint(self.env_batch, self.max_episode_length, canvas_width, renderer)
         self.env.load_data()
         self.observation_space = self.env.observation_space
         self.action_space = self.env.action_space

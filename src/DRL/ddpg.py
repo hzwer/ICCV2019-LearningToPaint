@@ -12,6 +12,11 @@ from utils.util import *
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 coord = torch.zeros([1, 2, 128, 128])
+# coord = torch.zeros([128,128])
+# coord = torch.range(0, 127).expand_as(coord)
+# coord = torch.stack((coord.t(), coord))
+# coord = coord.unsqueeze(0)
+# coord = coord / width
 for i in range(128):
     for j in range(128):
         coord[0, 0, i, j] = i / 127.
@@ -23,18 +28,19 @@ criterion = nn.MSELoss()
 Decoder = FCN()
 Decoder.load_state_dict(torch.load('../renderer.pkl'))
 
-def decode(x, canvas): # b * (10 + 3)
-    x = x.view(-1, 10 + 3)
-    stroke = 1 - Decoder(x[:, :10])
-    stroke = stroke.view(-1, 128, 128, 1)
-    color_stroke = stroke * x[:, -3:].view(-1, 1, 1, 3)
-    stroke = stroke.permute(0, 3, 1, 2)
-    color_stroke = color_stroke.permute(0, 3, 1, 2)
-    stroke = stroke.view(-1, 5, 1, 128, 128)
-    color_stroke = color_stroke.view(-1, 5, 3, 128, 128)
-    for i in range(5):
-        canvas = canvas * (1 - stroke[:, i]) + color_stroke[:, i]
-    return canvas
+def decode(actions, canvas, renderer): 
+    if renderer is 'neural':
+        actions = actions.view(-1, 10 + 3) # b * (10 + 3)
+        stroke = 1 - Decoder(actions[:, :10])
+        stroke = stroke.view(-1, 128, 128, 1)
+        color_stroke = stroke * actions[:, -3:].view(-1, 1, 1, 3)
+        stroke = stroke.permute(0, 3, 1, 2)
+        color_stroke = color_stroke.permute(0, 3, 1, 2)
+        stroke = stroke.view(-1, 5, 1, 128, 128)
+        color_stroke = color_stroke.view(-1, 5, 3, 128, 128)
+        for i in range(5):
+            canvas = canvas * (1 - stroke[:, i]) + color_stroke[:, i]
+        return canvas
 
 def cal_trans(s, t):
     return (s.transpose(0, 3) * t).transpose(0, 3)
@@ -42,14 +48,21 @@ def cal_trans(s, t):
 class DDPG(object):
     def __init__(self, batch_size=64, env_batch=1, max_step=40, \
                  tau=0.001, discount=0.9, rmsize=800, \
-                 writer=None, resume=None, output_path=None):
+                 writer=None, resume=None, output_path=None, canvas_width=128, renderer='neural'):
 
         self.max_step = max_step
         self.env_batch = env_batch
         self.batch_size = batch_size        
 
-        self.actor = ResNet(9, 18, 65) # target, canvas, stepnum, coordconv 3 + 3 + 1 + 2
-        self.actor_target = ResNet(9, 18, 65)
+        if renderer is 'neural':
+            self.output_size = 13
+        elif renderer is 'libmypaint':
+            self.output_size = 1
+        elif renderer is 'fluid':
+            self.output_size = 1
+
+        self.actor = ResNet(9, 18, self.output_size * 5) # target, canvas, stepnum, coordconv 3 + 3 + 1 + 2
+        self.actor_target = ResNet(9, 18, self.output_size * 5)
         self.critic = ResNet_wobn(3 + 9, 18, 1) # add the last canvas for better prediction
         self.critic_target = ResNet_wobn(3 + 9, 18, 1) 
 
@@ -77,6 +90,8 @@ class DDPG(object):
         self.action = [None] * self.env_batch # Most recent action
         self.choose_device()        
 
+        self.renderer = renderer
+
     def play(self, state, target=False):
         state = torch.cat((state[:, :6].float() / 255, state[:, 6:7].float() / self.max_step, coord.expand(state.shape[0], 2, 128, 128)), 1)
         if target:
@@ -97,7 +112,7 @@ class DDPG(object):
         T = state[:, 6 : 7]
         gt = state[:, 3 : 6].float() / 255
         canvas0 = state[:, :3].float() / 255
-        canvas1 = decode(action, canvas0)
+        canvas1 = decode(action, canvas0, self.renderer)
         gan_reward = cal_reward(canvas1, gt) - cal_reward(canvas0, gt)
         # L2_reward = ((canvas0 - gt) ** 2).mean(1).mean(1).mean(1) - ((canvas1 - gt) ** 2).mean(1).mean(1).mean(1)        
         coord_ = coord.expand(state.shape[0], 2, 128, 128)
