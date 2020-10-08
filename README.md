@@ -35,7 +35,7 @@ $ cd LearningToPaint
 ```
 
 ### Dependencies
-* [PyTorch](http://pytorch.org/) 0.4.1 
+* [PyTorch](http://pytorch.org/) 1.1.0 
 * [tensorboardX](https://github.com/lanpa/tensorboard-pytorch/tree/master/tensorboardX)
 * [opencv-python](https://pypi.org/project/opencv-python/) 3.4.0
 ```
@@ -101,7 +101,7 @@ Our research is to explore how to make machines learn to use painting tools. Our
 ## Resources
 - Chinese introductions
 
-[大三少年造出AI写意画家，像人类一样挥笔作画](https://zhuanlan.zhihu.com/p/64097633)
+[量子位报道](https://zhuanlan.zhihu.com/p/64097633)
 
 [Learning to Paint：一个绘画 AI](https://zhuanlan.zhihu.com/p/61761901)
 
