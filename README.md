@@ -73,15 +73,6 @@ $ python3 train.py --max_step=40 --debug --batch_size=96
 $ tensorboard --logdir train_log --port=6006
 ```
 
-## FAQ
-**Why does your demo look better than the result in your paper?**
-
-In our demo, after painting the outline of each image, we divide it into small patches to paint parallelly to get a high resolution.
-
-**Your main difference from [primitive](https://github.com/fogleman/primitive)？**
-
-Our research is to explore how to make machines learn to use painting tools. Our implementation is a combination of reinforcement learning and computer vision. Please read our paper for more details.
-
 ## Resources
 - Chinese introductions
 
