@@ -95,10 +95,10 @@ Also many thanks to [ctmakro](https://github.com/ctmakro/rl-painter) for inspiri
 
 If you find this repository useful for your research, please cite the following paper:
 ```
-@article{huang2019learning,
-  title={Learning to Paint with Model-based Deep Reinforcement Learning},
+@inproceedings{huang2019learning,
+  title={Learning to paint with model-based deep reinforcement learning},
   author={Huang, Zhewei and Heng, Wen and Zhou, Shuchang},
-  journal={arXiv preprint arXiv:1903.04411},
+  booktitle={Proceedings of the IEEE International Conference on Computer Vision (ICCV)},
   year={2019}
 }
 ```
