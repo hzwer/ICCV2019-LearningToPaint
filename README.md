@@ -102,3 +102,8 @@ If you find this repository useful for your research, please cite the following 
   year={2019}
 }
 ```
+
+感谢支持 Paypal Sponsor: https://www.paypal.com/paypalme/hzwer
+
+<img width="160" alt="image" src="https://cdn.luogu.com.cn/upload/image_hosting/5h3609p1.png"><img width="160" alt="image" src="https://cdn.luogu.com.cn/upload/image_hosting/yi3kcwnw.png">
+
