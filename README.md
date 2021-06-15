@@ -74,8 +74,6 @@ $ tensorboard --logdir train_log --port=6006
 ```
 
 ## Resources
-- Chinese introductions
-
 [量子位报道](https://zhuanlan.zhihu.com/p/64097633)
 
 [Learning to Paint：一个绘画 AI](https://zhuanlan.zhihu.com/p/61761901)
@@ -86,7 +84,7 @@ $ tensorboard --logdir train_log --port=6006
   <div>
   <img src="./image/poster.png" width="800">
   </div>
-
+* [Our ICCV rebuttal for reviewers](https://drive.google.com/file/d/1bEBS-uxmVEc7WVuX35NCodxDu17s_d8m/view?usp=sharing)
 ## Contributors
 - [hzwer](https://github.com/hzwer)
 - [ak9250](https://github.com/ak9250)
