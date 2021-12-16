@@ -1,6 +1,6 @@
 # ICCV2019-Learning to Paint
 
-## [arXiv](https://arxiv.org/abs/1903.04411) | [YouTube](https://youtu.be/YmOgKZ5oipk) | [Reddit](https://www.reddit.com/r/reinforcementlearning/comments/b5lpfl/learning_to_paint_with_modelbased_deep/)
+## [arXiv](https://arxiv.org/abs/1903.04411) | [YouTube](https://youtu.be/YmOgKZ5oipk) | [Reddit](https://www.reddit.com/r/reinforcementlearning/comments/b5lpfl/learning_to_paint_with_modelbased_deep/) | [Slide(中文)](https://docs.google.com/presentation/d/1itHk_yI8847wx-meH9k0v_8dNZS2dD0p/edit?usp=sharing&ouid=101528516762521089540&rtpof=true&sd=true)
 
 ## Abstract
 
