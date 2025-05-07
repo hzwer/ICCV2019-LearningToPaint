@@ -1,6 +1,6 @@
 # ICCV2019-Learning to Paint
 
-## [arXiv](https://arxiv.org/abs/1903.04411) | [YouTube](https://youtu.be/YmOgKZ5oipk) | [Reddit](https://www.reddit.com/r/reinforcementlearning/comments/b5lpfl/learning_to_paint_with_modelbased_deep/) | [Slide(中文)](https://docs.google.com/presentation/d/1itHk_yI8847wx-meH9k0v_8dNZS2dD0p/edit?usp=sharing&ouid=101528516762521089540&rtpof=true&sd=true) | [Replicate](https://replicate.ai/hzwer/iccv2019-learningtopaint)
+## [arXiv](https://arxiv.org/abs/1903.04411) | [YouTube](https://youtu.be/YmOgKZ5oipk) | [Reddit](https://www.reddit.com/r/reinforcementlearning/comments/b5lpfl/learning_to_paint_with_modelbased_deep/) | [Slide(中文)](https://docs.google.com/presentation/d/1itHk_yI8847wx-meH9k0v_8dNZS2dD0p/edit?usp=sharing&ouid=101528516762521089540&rtpof=true&sd=true) | [DeepWiki](https://deepwiki.com/hzwer/ICCV2019-LearningToPaint) | [Replicate](https://replicate.ai/hzwer/iccv2019-learningtopaint)
 [Zhewei Huang](https://scholar.google.com/citations?user=zJEkaG8AAAAJ&hl=zh-CN&oi=sra), Wen Heng, [Shuchang Zhou](https://scholar.google.com/citations?user=zYI0rysAAAAJ&hl=zh-CN&oi=sra)
 
 ## Abstract
